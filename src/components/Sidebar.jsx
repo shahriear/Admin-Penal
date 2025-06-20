@@ -15,51 +15,77 @@ const menuItems = [
 const Sidebar = ({ active, setActive, menuOpen, setMenuOpen }) => {
   return (
     <>
-      {/* Sidebar */}
+      {/* Sidebar Wrapper */}
       <div
         className={cn(
-          'fixed md:static z-50 top-0 left-0 h-full bg-[#d6d4d4] p-4 flex flex-col justify-between transition-transform duration-300 w-64 md:w-1/4 lg:w-1/5',
+          'fixed md:static z-50 transition-all duration-300',
+
+          // Layout
+          'w-full h-full top-0 left-0',
+
+          // Background color
+          'bg-[#323232] md:bg-[#d6d4d4]',
+
+          // Flex layout for both
+          'flex flex-col',
+
+          // Center on mobile, normal on desktop
+          'items-center justify-between md:justify md:justify-start',
+
+          // Width and padding
+          'p-6 md:w-64 lg:w-1/5 md:h-full',
+
+          // Slide-in animation
           menuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         )}
       >
-        <div>
-          <div className="hidden md:block text-xl font-bold mb-6 text-center">
-            Admin
-          </div>
-          <div className="flex flex-col gap-2">
-            {menuItems.map(item => (
-              <Button
-                key={item}
-                onClick={() => {
-                  setActive(item);
-                  setMenuOpen(false); // close on mobile
-                }}
-                className={cn(
-                  'w-full justify-start text-left',
-                  active === item
-                    ? 'bg-black text-white'
-                    : 'hover:bg-black hover:text-white'
-                )}
-              >
-                {item}
-              </Button>
-            ))}
-          </div>
+        {/* Title */}
+        <div className="text-5xl font-bold  pt-5 text-white md:text-black hidden md:block">
+          Admin
         </div>
+
+        {/* Menu Items */}
+        <div className="flex flex-col gap-4 w-full pt-20">
+          {menuItems.map(item => (
+            <Button
+              key={item}
+              onClick={() => {
+                setActive(item);
+                setMenuOpen(false);
+              }}
+              className={cn(
+                'w-full text-center font-semibold py-3 rounded-md transition-colors duration-200',
+
+                // Color logic
+                active === item
+                  ? 'bg-white text-black'
+                  : 'bg-[#323232] text-white hover:bg-white hover:text-black md:bg-[#d6d4d4] md:text-black md:hover:bg-black md:hover:text-white'
+              )}
+            >
+              {item}
+            </Button>
+          ))}
+        </div>
+
+        {/* Log Out Button */}
         <Button
-          className=" bg-black text-white text-center mt-4 cursor-pointer "
+          className={cn(
+            ' md:mt-60 w-full py-3 rounded-md transition-colors duration-200',
+            'bg-black text-white hover:bg-[#f0f0f0] hover:text-black',
+            'md:bg-black md:text-white md:hover:bg-white md:hover:text-black'
+          )}
           onClick={() => {
-            // Optional: handle logout
+            // Optional logout
           }}
         >
           Log Out
         </Button>
       </div>
 
-      {/* Mobile overlay */}
+      {/* Overlay for mobile */}
       {menuOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-30 z-40 md:hidden"
+          className="fixed inset-0 bg-black bg-opacity-40 z-40 md:hidden"
           onClick={() => setMenuOpen(false)}
         />
       )}
