@@ -58,7 +58,7 @@ const Sidebar = ({ active, setActive, menuOpen, setMenuOpen }) => {
 
                 // Color logic
                 active === item
-                  ? 'bg-white text-black'
+                  ? 'bg-white md:bg-black text-black md:text-white'
                   : 'bg-[#323232] text-white hover:bg-white hover:text-black md:bg-[#d6d4d4] md:text-black md:hover:bg-black md:hover:text-white'
               )}
             >
