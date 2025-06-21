@@ -31,12 +31,12 @@ const Dashboard = () => {
       <div className="flex-1">
         {/* Admin User for Desktop */}
         <div className="hidden md:flex bg-[#D9D9D961] justify-end items-center mb-10 pr-14 py-4">
-          <UserInfo imageSize={10} />
+          <UserInfo size="lg" />
         </div>
 
         {/* Admin User for Mobile */}
         <div className="md:hidden absolute top-4 right-6">
-          <UserInfo imageSize={8} />
+          <UserInfo size="md" />
         </div>
 
         {/* Content Section */}
