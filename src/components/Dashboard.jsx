@@ -5,6 +5,7 @@ import UserInfo from './UserInfo';
 import StatsSection from './StatsSection';
 import SummaryBar from './SummaryBar';
 import RecentActivities from './RecentActivities';
+import MemberList from './MemberList';
 
 const Dashboard = () => {
   const [active, setActive] = useState('Dashboard');
@@ -47,16 +48,23 @@ const Dashboard = () => {
         {/* Main Content */}
         <div className="bg-white p-4 md:p-6 overflow-auto">
           <CardContent className="p-4 md:p-6">
-            <h2 className="text-xl md:text-2xl font-bold mb-2">{active}</h2>
+            <h2 className="text-xl md:text-2xl font-bold mb-2 ">{active}</h2>
             <p className="text-sm text-gray-500 mb-6">
               {activeItem?.description}
             </p>
 
-            <div className="flex-1 bg-gray-100 p-4 mt-4">
-              <StatsSection />
-              <SummaryBar />
-              <RecentActivities />
-            </div>
+            {active === 'Dashboard' && (
+              <>
+                {/* <p className="text-sm text-gray-500 mb-4">
+                  Here is today's report & performances
+                </p> */}
+                <StatsSection />
+                <SummaryBar />
+                <RecentActivities />
+              </>
+            )}
+
+            {active === 'Member List' && <MemberList />}
           </CardContent>
         </div>
       </div>

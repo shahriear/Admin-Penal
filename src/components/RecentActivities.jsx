@@ -9,7 +9,7 @@ const RecentActivities = () => {
 
       <div className="space-y-2">
         {/* Row 1 */}
-        <div className="bg-gray-100 px-2 py-1 text-center rounded grid grid-cols-4 text-[10px] items-center">
+        <div className="bg-gray-100 px-2 py-1 text-center md:text-start rounded grid grid-cols-4 text-[10px] items-center">
           <div className="text-start">22.09.2023</div>
           <div>TXDFGC2ORRN</div>
           <div>$120000</div>
