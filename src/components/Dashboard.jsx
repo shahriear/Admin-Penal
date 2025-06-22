@@ -1,25 +1,30 @@
 import React, { useState } from 'react';
-import Sidebar from './Sidebar';
-import { Card, CardContent } from './ui/card';
+import Sidebar, { menuItems } from './Sidebar';
+import { CardContent } from './ui/card';
 import UserInfo from './UserInfo';
+import StatsSection from './StatsSection';
+import SummaryBar from './SummaryBar';
+import RecentActivities from './RecentActivities';
 
 const Dashboard = () => {
   const [active, setActive] = useState('Dashboard');
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const activeItem = menuItems.find(item => item.title === active);
+
   return (
     <div className="flex flex-col md:flex-row h-screen w-full">
       {/* Mobile Header */}
-      <div className="md:hidden flex items-center justify-between p-4 md:bg-[#d6d4d4] mb-12">
+      <div className="md:hidden flex items-center justify-between p-4 md:bg-[#d6d4d4] mb-2">
         <button
-          className="text-2xl font-bold"
+          className="text-3xl font-bold"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           ☰
         </button>
       </div>
 
-      {/* Sidebar Component */}
+      {/* Sidebar */}
       <Sidebar
         active={active}
         setActive={setActive}
@@ -27,29 +32,32 @@ const Dashboard = () => {
         setMenuOpen={setMenuOpen}
       />
 
-      {/* Right Section */}
+      {/* Right Content */}
       <div className="flex-1">
-        {/* Admin User for Desktop */}
-        <div className="hidden md:flex bg-[#D9D9D961] justify-end items-center mb-10 pr-14 py-4">
+        {/* Topbar - Desktop */}
+        <div className="hidden md:flex bg-[#D9D9D961] justify-end items-center pr-14 py-4">
           <UserInfo size="lg" />
         </div>
 
-        {/* Admin User for Mobile */}
+        {/* Topbar - Mobile */}
         <div className="md:hidden absolute top-4 right-6">
           <UserInfo size="md" />
         </div>
 
-        {/* Content Section */}
+        {/* Main Content */}
         <div className="bg-white p-4 md:p-6 overflow-auto">
-          <Card>
-            <CardContent className="p-4 md:p-6">
-              <h2 className="text-xl md:text-2xl font-bold mb-4">{active}</h2>
-              <p>
-                This is the {active} section. Add your component or data view
-                here.
-              </p>
-            </CardContent>
-          </Card>
+          <CardContent className="p-4 md:p-6">
+            <h2 className="text-xl md:text-2xl font-bold mb-2">{active}</h2>
+            <p className="text-sm text-gray-500 mb-6">
+              {activeItem?.description}
+            </p>
+
+            <div className="flex-1 bg-gray-100 p-4 mt-4">
+              <StatsSection />
+              <SummaryBar />
+              <RecentActivities />
+            </div>
+          </CardContent>
         </div>
       </div>
     </div>
