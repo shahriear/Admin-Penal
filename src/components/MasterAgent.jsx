@@ -68,17 +68,17 @@ const TorrityAgentList = () => {
                 </div>
                 {/* Action buttons container */}
                 <div className="flex gap-2 justify-center items-center px-10 overflow-x-auto whitespace-nowrap scrollbar-hide">
-                  <button className="min-w-[90px] bg-blue-500 text-white px-2 py-1 rounded flex items-center justify-center whitespace-nowrap">
+                  <button className="min-w-[90px] bg-blue-500 text-white px-2 py-1 rounded flex items-center justify-center whitespace-nowrap md:text-[11px]">
                     <FaUserEdit className="mr-1" />
                     Profile Edit
                   </button>
 
-                  <button className="min-w-[90px] bg-blue-600 text-white font-semibold px-2 py-1 rounded flex items-center justify-center whitespace-nowrap">
+                  <button className="min-w-[90px] bg-blue-600 text-white font-semibold px-2 py-1 rounded flex items-center justify-center whitespace-nowrap md:text-[11px]">
                     <FaPenAlt className="mr-1" />
                     Lock Up
                   </button>
 
-                  <button className="min-w-[110px] bg-blue-700 text-white font-semibold px-2 py-1 rounded flex items-center justify-center whitespace-nowrap">
+                  <button className="min-w-[110px] bg-blue-700 text-white font-semibold px-2 py-1 rounded flex items-center justify-center whitespace-nowrap md:text-[11px]">
                     See Agent List
                   </button>
                 </div>

@@ -9,6 +9,7 @@ import MemberList from './MemberList';
 import TorrityAgentList from './TorrityAgentList';
 import MasterAgent from './MasterAgent';
 import DepositWithdraw from './DepositWithdraw';
+import DepositHistory from './DepositHistory';
 
 const Dashboard = () => {
   const [active, setActive] = useState('Dashboard');
@@ -69,6 +70,7 @@ const Dashboard = () => {
             {active === 'Territory Agent List' && <TorrityAgentList />}
             {active === 'Master Agent List' && <MasterAgent />}
             {active === 'Deposit & Withdraw' && <DepositWithdraw />}
+            {active === 'Deposit History' && <DepositHistory />}
           </CardContent>
         </div>
       </div>
