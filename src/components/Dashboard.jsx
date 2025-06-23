@@ -46,7 +46,7 @@ const Dashboard = () => {
         </div>
 
         {/* Main Content */}
-        <div className="bg-white p-4 md:p-6 ">
+        <div className="bg-white p- md:p-6 ">
           <CardContent className="p-4 md:p-6">
             <h2 className="text-xl md:text-2xl font-bold mb-2 ">{active}</h2>
             <p className="text-sm text-gray-500 mb-6">
