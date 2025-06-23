@@ -13,7 +13,7 @@ const menuItems = [
   },
   {
     title: 'Territory Agent List',
-    description: 'Here is your all Master Agent',
+    description: 'Here is your all Territory Agent',
   },
   {
     title: 'Master Agent List',
@@ -21,15 +21,15 @@ const menuItems = [
   },
   {
     title: 'Deposit & Withdraw',
-    description: 'Here is all Deposit History',
+    description: 'Here you deposit & withdraw to master agent ,agent & user',
   },
   {
     title: 'Deposit History',
-    description: 'Here is your all Master Agent',
+    description: 'Here is all Deposit History ',
   },
   {
     title: ' Withdraw History',
-    description: 'Here is your 5D',
+    description: 'Here is all withdraw history',
   },
 ];
 

@@ -8,6 +8,7 @@ import RecentActivities from './RecentActivities';
 import MemberList from './MemberList';
 import TorrityAgentList from './TorrityAgentList';
 import MasterAgent from './MasterAgent';
+import DepositWithdraw from './DepositWithdraw';
 
 const Dashboard = () => {
   const [active, setActive] = useState('Dashboard');
@@ -50,7 +51,7 @@ const Dashboard = () => {
         {/* Main Content */}
         <div className="bg-white p- md:p-6 ">
           <CardContent className="p-4 md:p-6">
-            <h2 className="text-xl md:text-2xl font-bold mb-2 ">{active}</h2>
+            <h2 className="text-xl md:text-2xl font-sans mb-2 ">{active}</h2>
             <p className="text-sm text-gray-500 mb-6">
               {activeItem?.description}
             </p>
@@ -67,6 +68,7 @@ const Dashboard = () => {
 
             {active === 'Territory Agent List' && <TorrityAgentList />}
             {active === 'Master Agent List' && <MasterAgent />}
+            {active === 'Deposit & Withdraw' && <DepositWithdraw />}
           </CardContent>
         </div>
       </div>
