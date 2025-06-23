@@ -28,7 +28,7 @@ const menuItems = [
     description: 'Here is all Deposit History ',
   },
   {
-    title: ' Withdraw History',
+    title: 'Withdraw History',
     description: 'Here is all withdraw history',
   },
 ];
