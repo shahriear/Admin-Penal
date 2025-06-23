@@ -12,3 +12,5 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
+
+@config "../tailwind.config.js";

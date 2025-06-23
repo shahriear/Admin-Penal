@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import Sidebar, { menuItems } from './Sidebar';
+// import { menuItems } from './Sidebar';
 import { CardContent } from './ui/card';
-import UserInfo from './UserInfo';
-import StatsSection from './StatsSection';
-import SummaryBar from './SummaryBar';
-import RecentActivities from './RecentActivities';
-import MemberList from './MemberList';
-import TorrityAgentList from './TorrityAgentList';
-import MasterAgent from './MasterAgent';
-import DepositWithdraw from './DepositWithdraw';
-import DepositHistory from './DepositHistory';
-import WithdrawHistory from './WithdrawHistory';
+import UserInfo from './AdminMenu/Dashboard/UserInfo';
+import StatsSection from './AdminMenu/Dashboard/StatsSection';
+import SummaryBar from './AdminMenu/Dashboard/SummaryBar';
+import RecentActivities from './AdminMenu/Dashboard/RecentActivities';
+import MemberList from './AdminMenu/MemberList';
+import TorrityAgentList from './AdminMenu/TorrityAgentList';
+import MasterAgent from './AdminMenu/MasterAgent';
+import DepositWithdraw from './AdminMenu/DepositWithdraw';
+import DepositHistory from './AdminMenu//DepositHistory';
+import WithdrawHistory from './AdminMenu/WithdrawHistory';
+import Sidebar, { menuItems } from './AdminMenu/Dashboard/Sidebar';
 
 const Dashboard = () => {
   const [active, setActive] = useState('Dashboard');
@@ -53,7 +54,9 @@ const Dashboard = () => {
         {/* Main Content */}
         <div className="bg-white p- md:p-6 ">
           <CardContent className="p-4 md:p-6">
-            <h2 className="text-xl md:text-2xl font-sans mb-2 ">{active}</h2>
+            <h2 className="text-xl md:text-2xl font-dm font-[400] mb-2 ">
+              {active}
+            </h2>
             <p className="text-sm text-gray-500 mb-6">
               {activeItem?.description}
             </p>

@@ -1,6 +1,8 @@
 import React from 'react';
-import { Button } from './Button';
-import { cn } from '../lib/utils';
+import { Button } from '../../ui/Button';
+import { cn } from '../../../lib/utils';
+
+// import { cn } from '../../lib/utils';
 
 const menuItems = [
   {
@@ -48,7 +50,7 @@ const Sidebar = ({ active, setActive, menuOpen, setMenuOpen }) => {
         )}
       >
         {/* Title */}
-        <div className="text-5xl font-bold pt-5 text-white md:text-black hidden md:block">
+        <div className="text-5xl  font-dm font-[700] text-[48px] pt-5 text-white md:text-black hidden md:block">
           Admin
         </div>
 
@@ -62,7 +64,7 @@ const Sidebar = ({ active, setActive, menuOpen, setMenuOpen }) => {
                 setMenuOpen(false);
               }}
               className={cn(
-                'w-full text-center font-semibold py-3 rounded-md transition-colors duration-200',
+                'w-full text-center font-dm md:font-[600] md:text-[16px] font-dm font-[700] text-[24px] py-3 rounded-md transition-colors duration-200',
                 active === title
                   ? 'bg-white md:bg-black text-black md:text-white'
                   : 'bg-[#323232] text-white hover:bg-white hover:text-black md:bg-[#d6d4d4] md:text-black md:hover:bg-black md:hover:text-white'
@@ -76,7 +78,7 @@ const Sidebar = ({ active, setActive, menuOpen, setMenuOpen }) => {
         {/* Log Out */}
         <Button
           className={cn(
-            'md:mt-60 w-full py-3 rounded-md transition-colors duration-200',
+            'md:mt-60 w-full py-3 rounded-md transition-colors duration-200  font-dm font-[600] text-[16px]',
             'bg-black text-white hover:bg-[#f0f0f0] hover:text-black',
             'md:bg-black md:text-white md:hover:bg-white md:hover:text-black'
           )}
