@@ -12,8 +12,12 @@ const menuItems = [
     description: 'Here is your all User',
   },
   {
+    title: 'Territory Agent List',
+    description: 'Here is your all Master Agent',
+  },
+  {
     title: 'Master Agent List',
-    description: 'Here you deposit & withdraw to master agent, agent & user',
+    description: 'Here is your all Master Agent',
   },
   {
     title: 'Deposit & Withdraw',

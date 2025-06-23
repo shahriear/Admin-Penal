@@ -6,7 +6,8 @@ import StatsSection from './StatsSection';
 import SummaryBar from './SummaryBar';
 import RecentActivities from './RecentActivities';
 import MemberList from './MemberList';
-import AgentList from './AgentList';
+import TorrityAgentList from './TorrityAgentList';
+import MasterAgent from './MasterAgent';
 
 const Dashboard = () => {
   const [active, setActive] = useState('Dashboard');
@@ -64,7 +65,8 @@ const Dashboard = () => {
 
             {active === 'Member List' && <MemberList />}
 
-            {active === 'Master Agent List' && <AgentList />}
+            {active === 'Territory Agent List' && <TorrityAgentList />}
+            {active === 'Master Agent List' && <MasterAgent />}
           </CardContent>
         </div>
       </div>

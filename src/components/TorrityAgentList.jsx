@@ -18,7 +18,7 @@ const members = [
   },
 ];
 
-const AgentList = () => {
+const TorrityAgentList = () => {
   return (
     <div className="bg-white md:p-6 rounded">
       {/* Title + Search/Add */}
@@ -91,4 +91,4 @@ const AgentList = () => {
   );
 };
 
-export default AgentList;
+export default TorrityAgentList;
