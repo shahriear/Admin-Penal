@@ -12,24 +12,20 @@ const menuItems = [
     description: 'Here is your all User',
   },
   {
-    title: 'Deposit & Withdraw',
+    title: 'Master Agent List',
     description: 'Here you deposit & withdraw to master agent, agent & user',
   },
   {
-    title: 'Deposit History',
+    title: 'Deposit & Withdraw',
     description: 'Here is all Deposit History',
   },
   {
-    title: 'Wingo',
+    title: 'Deposit History',
     description: 'Here is your all Master Agent',
   },
   {
-    title: '5D',
+    title: ' Withdraw History',
     description: 'Here is your 5D',
-  },
-  {
-    title: 'k3',
-    description: 'Here is your k3',
   },
 ];
 

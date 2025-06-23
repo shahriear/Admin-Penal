@@ -6,6 +6,7 @@ import StatsSection from './StatsSection';
 import SummaryBar from './SummaryBar';
 import RecentActivities from './RecentActivities';
 import MemberList from './MemberList';
+import AgentList from './AgentList';
 
 const Dashboard = () => {
   const [active, setActive] = useState('Dashboard');
@@ -55,9 +56,6 @@ const Dashboard = () => {
 
             {active === 'Dashboard' && (
               <>
-                {/* <p className="text-sm text-gray-500 mb-4">
-                  Here is today's report & performances
-                </p> */}
                 <StatsSection />
                 <SummaryBar />
                 <RecentActivities />
@@ -65,6 +63,8 @@ const Dashboard = () => {
             )}
 
             {active === 'Member List' && <MemberList />}
+
+            {active === 'Master Agent List' && <AgentList />}
           </CardContent>
         </div>
       </div>
