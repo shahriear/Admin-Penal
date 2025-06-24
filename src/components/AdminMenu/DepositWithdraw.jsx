@@ -80,7 +80,9 @@ const DepositWithdraw = () => {
         </form>
 
         {/* Withdraw Form */}
-        <h2 className="text-xl font-semibold mb-4">Withdraw</h2>
+        <h2 className="font-dm md:font-[500] md:text-[20px] font-[500] text-[18px] mb-4">
+          Withdraw
+        </h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block font-dm md:font-[400] md:text-[16px] font-[400] text-[14px] mb-1">

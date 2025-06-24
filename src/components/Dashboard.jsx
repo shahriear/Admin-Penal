@@ -12,6 +12,7 @@ import DepositWithdraw from './AdminMenu/DepositWithdraw';
 import DepositHistory from './AdminMenu//DepositHistory';
 import WithdrawHistory from './AdminMenu/WithdrawHistory';
 import Sidebar, { menuItems } from './AdminMenu/Dashboard/Sidebar';
+import AdminActionMenu from './AdminMenu/Dashboard/AdminActionMenu';
 
 const Dashboard = () => {
   const [active, setActive] = useState('Dashboard');
@@ -43,12 +44,12 @@ const Dashboard = () => {
       <div className="flex-1">
         {/* Topbar - Desktop */}
         <div className="hidden md:flex bg-[#D9D9D961] justify-end items-center pr-14 py-4">
-          <UserInfo size="lg" />
+          <AdminActionMenu />
         </div>
 
         {/* Topbar - Mobile */}
         <div className="md:hidden absolute top-4 right-6">
-          <UserInfo size="md" />
+          <AdminActionMenu />
         </div>
 
         {/* Main Content */}
