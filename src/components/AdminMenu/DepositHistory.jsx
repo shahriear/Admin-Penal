@@ -15,7 +15,7 @@ const DepositTable = () => {
       <div className="w-full overflow-x-auto">
         <table className="w-full table-fixed border-separate border-spacing-y-2 text-sm">
           <thead>
-            <tr className="bg-[#C3C2C2] text-[10px] md:text-[16px]">
+            <tr className="bg-[#C3C2C2] font-dm md:font-[500] md:text-[14px] font-[500] text-[10px]">
               <th className="w-[25%] text-left px-2 py-2 whitespace-nowrap">
                 Date
               </th>
@@ -35,7 +35,7 @@ const DepositTable = () => {
             {depositData.map((item, index) => (
               <tr
                 key={index}
-                className="bg-[#D9D9D95E] border border-transparent text-[10px] md:text-[14px]"
+                className="bg-[#D9D9D95E] border border-transparent font-dm md:font-[400] md:text-[14px] font-[400] text-[10px]"
               >
                 <td className="px-2 py-2 whitespace-nowrap">{item.date}</td>
                 <td className="px-2 py-2 whitespace-nowrap">

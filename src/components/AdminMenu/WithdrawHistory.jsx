@@ -12,7 +12,7 @@ const withdrawData = [
     date: '22.09.2023',
     transactionId: 'WXDFGH45HHM',
     balance: '$800.00',
-    status: 'Done',
+    status: 'Pending',
   },
 ];
 
@@ -23,7 +23,7 @@ const WithdrawHistory = () => {
         <table className="w-full table-fixed border-separate border-spacing-y-2 text-sm">
           {/* Header: only visible on mobile */}
           <thead className="md:hidden">
-            <tr className="bg-[#C3C2C2] text-[10px] md:text-[16px] w-full">
+            <tr className="bg-[#C3C2C2] font-dm md:font-[400] md:text-[14px] font-[400] text-[10px] w-full">
               <th className="w-[25%] text-left px-2 py-2 whitespace-nowrap">
                 Date
               </th>
@@ -51,7 +51,7 @@ const WithdrawHistory = () => {
               <td className="px-2 py-2 whitespace-nowrap">
                 {withdrawData[0].balance}
               </td>
-              <td className="px-2 py-2 whitespace-nowrap text-green-600">
+              <td className="px-2 py-2 whitespace-nowrap text-red-600">
                 {withdrawData[0].status}
               </td>
             </tr>

@@ -43,35 +43,37 @@ const DepositWithdraw = () => {
         )}
 
         {/* Deposit Form */}
-        <h2 className="text-xl font-semibold mb-4">Deposit</h2>
+        <h2 className="font-dm md:font-[500] md:text-[20px] font-[500] text-[18px] mb-4">
+          Deposit
+        </h2>
         <form className="mb-[60px]" onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-sm font-medium mb-1">
+            <label className="block font-dm md:font-[400] md:text-[16px] font-[400] text-[14px] mb-1">
               Enter Agent ID/User Number <span className="text-black">*</span>
             </label>
             <input
               type="text"
-              className="w-full px-3 py-2 border border-gray-400 rounded bg-gray-200 focus:outline-blue-600"
+              className="w-full px-3 py-2 border border-gray-400 rounded bg-[#D9D9D9] focus:outline-blue-600"
             />
-            <p className="text-[10px] mt-1">
-              Name : Nancy Himel /{' '}
+            <p className="font-dm md:font-[500] md:text-[10px] font-[500] text-[10px] mt-1">
+              Name : Nancy Himel /
               <span className="text-red-600">Invalid ID</span>
             </p>
           </div>
 
           <div className="mb-4">
-            <label className="block text-sm font-medium mb-1">
+            <label className="block font-dm md:font-[400] md:text-[16px] font-[400] text-[14px] mb-1">
               Enter Amount <span className="text-black">*</span>
             </label>
             <input
               type="text"
-              className="w-full px-3 py-2 border border-gray-400 rounded bg-gray-200 focus:outline-blue-600"
+              className="w-full px-3 py-2 border border-gray-400 rounded bg-[#D9D9D9] focus:outline-blue-600"
             />
           </div>
 
           <button
             type="submit"
-            className="bg-black text-white px-6 py-2 rounded"
+            className="bg-black text-white px-6 py-2 rounded font-dm md:font-[500] md:text-[20px] font-[500] text-[16px]"
           >
             Submit
           </button>
@@ -81,32 +83,32 @@ const DepositWithdraw = () => {
         <h2 className="text-xl font-semibold mb-4">Withdraw</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-sm font-medium mb-1">
+            <label className="block font-dm md:font-[400] md:text-[16px] font-[400] text-[14px] mb-1">
               Enter Agent ID/User Number <span className="text-black">*</span>
             </label>
             <input
               type="text"
-              className="w-full px-3 py-2 border border-gray-400 rounded bg-gray-200 focus:outline-blue-600"
+              className="w-full px-3 py-2 border border-gray-400 rounded bg-[#D9D9D9] focus:outline-blue-600"
             />
-            <p className="text-[10px] mt-1">
-              Name : Nancy Himel /{' '}
+            <p className="font-dm md:font-[500] md:text-[10px] font-[500] text-[10px] mt-1">
+              Name : Nancy Himel /
               <span className="text-red-600">Invalid ID</span>
             </p>
           </div>
 
           <div className="mb-4">
-            <label className="block text-sm font-medium mb-1">
+            <label className="block font-dm md:font-[400] md:text-[16px] font-[400] text-[14px] mb-1">
               Enter Amount <span className="text-black">*</span>
             </label>
             <input
               type="text"
-              className="w-full px-3 py-2 border border-gray-400 rounded bg-gray-200 focus:outline-blue-600"
+              className="w-full px-3 py-2 border border-gray-400 rounded bg-[#D9D9D9] focus:outline-blue-600"
             />
           </div>
 
           <button
             type="submit"
-            className="bg-black text-white px-6 py-2 rounded"
+            className="bg-black text-white px-6 py-2 rounded font-dm md:font-[500] md:text-[20px] font-[500] text-[16px]"
           >
             Submit
           </button>

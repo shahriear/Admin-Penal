@@ -64,7 +64,7 @@ const Sidebar = ({ active, setActive, menuOpen, setMenuOpen }) => {
                 setMenuOpen(false);
               }}
               className={cn(
-                'w-full text-center font-dm md:font-[600] md:text-[16px] font-dm font-[700] text-[24px] py-3 rounded-md transition-colors duration-200',
+                'w-full text-center font-dm md:font-[600] md:text-[16px]  font-[700] text-[24px] py-3 rounded-md transition-colors duration-200',
                 active === title
                   ? 'bg-white md:bg-black text-black md:text-white'
                   : 'bg-[#323232] text-white hover:bg-white hover:text-black md:bg-[#d6d4d4] md:text-black md:hover:bg-black md:hover:text-white'
