@@ -21,6 +21,7 @@ const ChangeNameModal = ({ isOpen, onClose }) => {
               const name = e.target.name.value;
               console.log('New name:', name);
               onClose();
+              window.scrollTo(0, 0);
             }}
           >
             <input
@@ -28,7 +29,7 @@ const ChangeNameModal = ({ isOpen, onClose }) => {
               type="text"
               autoFocus
               placeholder="Enter Name Here"
-              className="w-full border p-2 rounded mb-4 font-dm md:font-[300] md:text-[15px] font-[300] text-[10px] bg-[#D9D9D9] "
+              className="w-full border p-2 rounded mb-4 font-dm md:font-[300] md:text-[15px] font-[300] text-[16px] bg-[#D9D9D9] "
               required
             />
             <div className="text-center">
