@@ -5,6 +5,11 @@ import { CgProfile } from 'react-icons/cg';
 import { TbSettingsPause } from 'react-icons/tb';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { FiMinusCircle } from 'react-icons/fi';
+import ChangeNameModal from '../../AdminModals/ChangeNameModal';
+import ChangePasswordModal from '../../AdminModals/ChangePasswordModal';
+import CreateAdminModal from '../../AdminModals/CreateAdminModal';
+import DeleteAdminModal from '../../AdminModals/DeleteAdminModal';
+// import ChangeNameModal from '../AdminModals/ChangeNameModal';
 
 const AdminActionMenu = ({ size = 'xl', className = '' }) => {
   const [open, setOpen] = useState(false);
@@ -28,6 +33,8 @@ const AdminActionMenu = ({ size = 'xl', className = '' }) => {
   };
 
   const imageClass = sizeMap[size] || sizeMap['lg'];
+  const [openModal, setOpenModal] = useState(null);
+  const closeModal = () => setOpenModal(null);
   return (
     <div className="relative inline-block" ref={wrapperRef}>
       {/* আগের UserInfo component-কে ক্লিকযোগ্য করলাম */}
@@ -59,29 +66,49 @@ const AdminActionMenu = ({ size = 'xl', className = '' }) => {
               icon={<CgProfile className="text-[18px]" />}
               label="Change Name"
               labelClass="font-dm font-[500] text-[16px]"
-              onClick={() => alert('Change Name')}
+              onClick={() => {
+                setOpen(false);
+                setOpenModal('name');
+              }}
             />
             <ActionItem
               icon={<TbSettingsPause className="text-[18px]" />}
               label="Change Password"
               labelClass="font-dm font-[400] text-[16px]"
-              onClick={() => alert('Change Password')}
+              onClick={() => {
+                setOpen(false);
+                setOpenModal('password');
+              }}
             />
             <ActionItem
               icon={<AiOutlinePlusCircle className="text-[18px]" />}
               label="Create New Admin"
               labelClass="font-dm font-[400] text-[16px]"
-              onClick={() => alert('Create New Admin')}
+              onClick={() => {
+                setOpen(false);
+                setOpenModal('create');
+              }}
             />
             <ActionItem
               icon={<FiMinusCircle className="text-[18px]" />}
               label="Delete Admin"
               labelClass="font-dm font-[400] text-[16px] text-red-500"
-              onClick={() => alert('Delete Admin')}
+              onClick={() => {
+                setOpen(false);
+                setOpenModal('delete');
+              }}
             />
           </CardContent>
         </Card>
       )}
+      {/* Modals */}
+      <ChangeNameModal isOpen={openModal === 'name'} onClose={closeModal} />
+      <ChangePasswordModal
+        isOpen={openModal === 'password'}
+        onClose={closeModal}
+      />
+      <CreateAdminModal isOpen={openModal === 'create'} onClose={closeModal} />
+      <DeleteAdminModal isOpen={openModal === 'delete'} onClose={closeModal} />
     </div>
   );
 };
