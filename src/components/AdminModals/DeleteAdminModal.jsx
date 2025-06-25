@@ -1,8 +1,7 @@
 import { Dialog } from '@headlessui/react';
-
+import { useAdminListStore } from '../store/useAdminListStore';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import { useAdminListStore } from '../store/useAdminListStore';
 
 const DeleteAdminModal = ({ isOpen, onClose }) => {
   const admins = useAdminListStore(state => state.admins);
@@ -13,24 +12,21 @@ const DeleteAdminModal = ({ isOpen, onClose }) => {
   const handleDelete = () => {
     if (selectedAdmin) {
       removeAdmin(selectedAdmin.id);
-      toast.success(`Admin ${selectedAdmin.name} deleted`);
-      setSelectedAdmin(null); // go back to list view
+      toast.success(`${selectedAdmin.name} deleted`);
+      setSelectedAdmin(null); // reset state
     }
   };
 
+  const handleClose = () => {
+    setSelectedAdmin(null);
+    onClose();
+  };
+
   return (
-    <Dialog
-      open={isOpen}
-      onClose={() => {
-        onClose();
-        setSelectedAdmin(null);
-      }}
-      className="relative z-50"
-    >
+    <Dialog open={isOpen} onClose={handleClose} className="relative z-50">
       <div className="fixed inset-0 bg-black/60" aria-hidden="true" />
       <div className="fixed inset-0 flex items-center justify-center p-4">
-        <Dialog.Panel className="w-full max-w-md bg-white p-6 rounded-lg shadow-lg border-l-[23px] border-red-600 ">
-          {/* 👉 List View */}
+        <Dialog.Panel className="w-full max-w-md bg-white p-6 rounded-lg shadow-lg">
           {!selectedAdmin ? (
             <>
               <Dialog.Title className="text-lg font-semibold mb-4">
@@ -58,10 +54,7 @@ const DeleteAdminModal = ({ isOpen, onClose }) => {
               )}
               <div className="text-center mt-6">
                 <button
-                  onClick={() => {
-                    onClose();
-                    setSelectedAdmin(null);
-                  }}
+                  onClick={handleClose}
                   className="bg-gray-300 hover:bg-gray-400 text-black px-4 py-2 rounded"
                 >
                   Close
@@ -69,22 +62,23 @@ const DeleteAdminModal = ({ isOpen, onClose }) => {
               </div>
             </>
           ) : (
-            // 👉 Confirmation View
-            <div>
-              <p className="mb-4 font-dm md:font-[400] md:text-[16px] font-[400] text-[13px] text-gray-600">
+            <div className="border-l-4 border-red-600 px-4">
+              <p className="mb-4 font-dm md:font-[400] md:text-[16px] text-[12px] text-gray-600">
                 Are you sure you want to delete (
                 <span className="text-red-600">{selectedAdmin.name}</span>)?
               </p>
-              <div className="flex justify-center gap-2">
+              <div className="flex justify-end gap-2">
                 <button
                   onClick={() => setSelectedAdmin(null)}
-                  className="bg-gray-300 hover:bg-gray-400 text-black px-4 py-2 rounded font-dm md:font-[500] md:text-[14px] text-[12px]"
+                  className="bg-gray-300 hover:bg-gray-400 text-black px-4 py-2 rounded text-[12px]"
                 >
                   Cancel
                 </button>
                 <button
-                  onClick={handleDelete}
-                  className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded font-dm md:font-[500] md:text-[14px] text-[12px]"
+                  onClick={() => {
+                    handleDelete();
+                  }}
+                  className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded text-[12px]"
                 >
                   Delete
                 </button>

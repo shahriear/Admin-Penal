@@ -1,28 +1,69 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaUserEdit, FaPenAlt } from 'react-icons/fa';
 import { LuCrosshair } from 'react-icons/lu';
 import { FaPenNib } from 'react-icons/fa';
-
-const members = [
-  {
-    account: '01773647834',
-    password: '@#boomST25@#',
-    balance: '$12,000.00',
-    status: 'Active',
-    agent: '1722350',
-    blocked: false,
-  },
-  {
-    account: '01773647834',
-    password: '@#boomST25@#',
-    balance: '$12,000.00',
-    status: 'Blocked',
-    agent: '1722350',
-    blocked: true,
-  },
-];
+import LockConfirmModal from '../MemberList/LockConfirmModal';
+import UnblockConfirmModal from '../MemberList/UnblockConfirmModal';
 
 const MemberList = () => {
+  const [members, setMembers] = useState([
+    {
+      id: 1,
+      account: '01773647834',
+      password: '@#boomST25@#',
+      balance: '$12,000.00',
+      status: 'Active',
+      agent: '1722350',
+      blocked: false,
+    },
+    {
+      id: 2,
+      account: '01773647834',
+      password: '@#boomST25@#',
+      balance: '$12,000.00',
+      status: 'Blocked',
+      agent: '1722350',
+      blocked: true,
+    },
+  ]);
+
+  const [selectedMember, setSelectedMember] = useState(null);
+  const [lockModalOpen, setLockModalOpen] = useState(false);
+  const [unblockModalOpen, setUnblockModalOpen] = useState(false);
+
+  const handleBlock = member => {
+    setSelectedMember(member);
+    setLockModalOpen(true);
+  };
+
+  const handleUnblock = member => {
+    setSelectedMember(member);
+    setUnblockModalOpen(true);
+  };
+
+  const confirmBlock = () => {
+    setMembers(prev =>
+      prev.map(m =>
+        m.id === selectedMember.id
+          ? { ...m, blocked: true, status: 'Blocked' }
+          : m
+      )
+    );
+    setLockModalOpen(false);
+    setSelectedMember(null);
+  };
+
+  const confirmUnblock = () => {
+    setMembers(prev =>
+      prev.map(m =>
+        m.id === selectedMember.id
+          ? { ...m, blocked: false, status: 'Active' }
+          : m
+      )
+    );
+    setUnblockModalOpen(false);
+    setSelectedMember(null);
+  };
   return (
     <div className="bg-white md:p-6 rounded">
       {/* Title + Search/Add */}
@@ -88,15 +129,19 @@ const MemberList = () => {
                   </button>
 
                   {!m.blocked && (
-                    <button className="min-w-[90px] h-[px] bg-blue-600 text-white  px-2 py-1 rounded flex items-center justify-center whitespace-nowrap font-dm md:font-[400] md:text-[12px] font-[400] text-[10px]">
-                      <FaPenAlt className="mr-1 md:text-sm" />
+                    <button
+                      onClick={() => handleBlock(m)}
+                      className="min-w-[90px] bg-blue-600 text-white px-2 py-1 rounded"
+                    >
                       Lock Up
                     </button>
                   )}
-
                   {m.blocked && (
-                    <button className="min-w-[90px] h-[px] bg-yellow-500 text-black  px-2 py-1 rounded flex items-center justify-center whitespace-nowrap font-dm md:font-[400] md:text-[12px] font-[400] text-[10px]">
-                      UnBlock
+                    <button
+                      onClick={() => handleUnblock(m)}
+                      className="min-w-[90px] bg-yellow-500 text-black px-2 py-1 rounded"
+                    >
+                      Unblock
                     </button>
                   )}
                 </div>
@@ -110,6 +155,19 @@ const MemberList = () => {
           </div>
         </div>
       </div>
+      {/* Modals */}
+      <LockConfirmModal
+        isOpen={lockModalOpen}
+        onClose={() => setLockModalOpen(false)}
+        onConfirm={confirmBlock}
+        name={selectedMember?.name}
+      />
+      <UnblockConfirmModal
+        isOpen={unblockModalOpen}
+        onClose={() => setUnblockModalOpen(false)}
+        onConfirm={confirmUnblock}
+        name={selectedMember?.name}
+      />
     </div>
   );
 };
