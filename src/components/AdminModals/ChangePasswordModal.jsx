@@ -50,6 +50,7 @@
 
 // export default ChangePasswordModal;
 import { Dialog } from '@headlessui/react';
+import { toast } from 'react-toastify';
 
 const ChangeNameModal = ({ isOpen, onClose }) => {
   return (
@@ -71,6 +72,11 @@ const ChangeNameModal = ({ isOpen, onClose }) => {
               e.preventDefault();
 
               const newPass = e.target.newPassword.value;
+              if (newPass.length < 4) {
+                toast.error('Password must be at least 4 characters');
+                return;
+              }
+              toast.success('Passward Successfully Change');
               console.log('Change Password:', { newPass });
               onClose();
               window.scrollTo(0, 0);
@@ -81,7 +87,6 @@ const ChangeNameModal = ({ isOpen, onClose }) => {
               type="password"
               placeholder="Enter Password Here"
               className="w-full border p-2 rounded mb-4 font-dm md:font-[300] md:text-[15px] font-[300] text-[16px] bg-[#D9D9D9] "
-              required
             />
             <div className="text-center">
               <button

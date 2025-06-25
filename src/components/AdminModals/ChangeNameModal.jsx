@@ -1,4 +1,5 @@
 import { Dialog } from '@headlessui/react';
+import { toast } from 'react-toastify';
 
 const ChangeNameModal = ({ isOpen, onClose }) => {
   return (
@@ -19,6 +20,13 @@ const ChangeNameModal = ({ isOpen, onClose }) => {
             onSubmit={e => {
               e.preventDefault();
               const name = e.target.name.value;
+              if (name.length < 3) {
+                toast.error('Admin Name must be at least 3 characters');
+                return;
+              }
+
+              // ✅ Success Toast
+              toast.success('Name changed successfully!');
               console.log('New name:', name);
               onClose();
               window.scrollTo(0, 0);
@@ -30,7 +38,6 @@ const ChangeNameModal = ({ isOpen, onClose }) => {
               autoFocus
               placeholder="Enter Name Here"
               className="w-full border p-2 rounded mb-4 font-dm md:font-[300] md:text-[15px] font-[300] text-[16px] bg-[#D9D9D9] "
-              required
             />
             <div className="text-center">
               <button

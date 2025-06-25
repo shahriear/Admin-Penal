@@ -10,7 +10,7 @@ const DeleteAdminModal = ({ isOpen, onClose }) => {
             Are you sure you want to delete (
             <span className="text-red-600">Admin Name</span>)?
           </p>
-          <div className="flex justify-center gap-2">
+          <div className="flex justify-center gap-5">
             <button
               onClick={onClose}
               className="bg-gray-300 hover:bg-gray-400 text-black px-4 py-2 rounded  font-dm md:font-[500] md:text-[14px] font-[500] text-[12px]"

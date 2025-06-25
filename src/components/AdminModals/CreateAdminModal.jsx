@@ -59,6 +59,7 @@
 // export default CreateAdminModal;
 
 import { Dialog } from '@headlessui/react';
+import { toast } from 'react-toastify';
 
 const ChangeNameModal = ({ isOpen, onClose }) => {
   return (
@@ -79,6 +80,20 @@ const ChangeNameModal = ({ isOpen, onClose }) => {
               const adminName = e.target.adminName.value;
               const adminId = e.target.adminId.value;
               const password = e.target.password.value;
+              if (adminName.length < 3) {
+                toast.error('Admin Name must be at least 3 characters');
+                return;
+              }
+              if (adminId.length !== 6) {
+                toast.error('Admin ID must be 6 digits');
+                return;
+              }
+              if (password.length < 4) {
+                toast.error('Password must be at least 4 characters');
+                return;
+              }
+              // ✅ Success Toast
+              toast.success('New Admin Successfully Created');
 
               console.log('Admin Name:', adminName);
               console.log('Admin ID:', adminId);
@@ -97,7 +112,6 @@ const ChangeNameModal = ({ isOpen, onClose }) => {
               type="text"
               placeholder="Enter Admin Name"
               className="w-full border p-2 rounded mb-4 font-dm md:font-[300] md:text-[15px] font-[300] text-[16px] bg-[#D9D9D9]"
-              required
             />
 
             {/* Admin ID */}
@@ -109,7 +123,6 @@ const ChangeNameModal = ({ isOpen, onClose }) => {
               type="text"
               placeholder="Enter Admin Name"
               className="w-full border p-2 rounded mb-4 font-dm md:font-[300] md:text-[15px] font-[300] text-[16px] bg-[#D9D9D9]"
-              required
             />
 
             {/* Password */}
@@ -121,7 +134,6 @@ const ChangeNameModal = ({ isOpen, onClose }) => {
               type="password"
               placeholder="Enter Admin Name"
               className="w-full border p-2 rounded mb-6 font-dm md:font-[300] md:text-[15px] font-[300] text-[16px] bg-[#D9D9D9]"
-              required
             />
 
             <div className="text-center">
