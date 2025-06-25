@@ -1,67 +1,10 @@
-// import { Dialog } from '@headlessui/react';
-
-// const CreateAdminModal = ({ isOpen, onClose }) => {
-//   return (
-//     <Dialog open={isOpen} onClose={onClose} className="relative z-50">
-//       <div className="fixed inset-0 bg-black/40" aria-hidden="true" />
-//       <div className="fixed inset-0 flex items-center justify-center p-4">
-//         <Dialog.Panel className="w-full max-w-md bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-//           <Dialog.Title className="text-lg font-semibold mb-4">
-//             Create New Admin
-//           </Dialog.Title>
-//           <form
-//             onSubmit={e => {
-//               e.preventDefault();
-//               const name = e.target.name.value;
-//               const email = e.target.email.value;
-//               const password = e.target.password.value;
-//               console.log('New Admin:', { name, email, password });
-//               onClose();
-//               window.scrollTo(0, 0);
-//             }}
-//           >
-//             <input
-//               name="name"
-//               type="text"
-//               placeholder="Name"
-//               className="w-full border p-2 rounded mb-3"
-//               required
-//             />
-//             <input
-//               name="email"
-//               type="email"
-//               placeholder="Email"
-//               className="w-full border p-2 rounded mb-3"
-//               required
-//             />
-//             <input
-//               name="password"
-//               type="password"
-//               placeholder="Password"
-//               className="w-full border p-2 rounded mb-4"
-//               required
-//             />
-//             <div className="text-right">
-//               <button
-//                 type="submit"
-//                 className="bg-green-500 text-white px-4 py-2 rounded"
-//               >
-//                 Create
-//               </button>
-//             </div>
-//           </form>
-//         </Dialog.Panel>
-//       </div>
-//     </Dialog>
-//   );
-// };
-
-// export default CreateAdminModal;
-
 import { Dialog } from '@headlessui/react';
 import { toast } from 'react-toastify';
+import { useAdminListStore } from '../store/useAdminListStore';
 
-const ChangeNameModal = ({ isOpen, onClose }) => {
+const CreateAdminModal = ({ isOpen, onClose }) => {
+  const addAdmin = useAdminListStore(state => state.addAdmin);
+
   return (
     <Dialog open={isOpen} onClose={onClose} className="relative z-50">
       {/* Background overlay */}
@@ -71,7 +14,7 @@ const ChangeNameModal = ({ isOpen, onClose }) => {
       <div className="fixed inset-0 flex items-center justify-center p-4">
         <Dialog.Panel className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
           <Dialog.Title className="font-dm md:font-[600] md:text-[20px] font-[600] text-[18px] mb-2 mt-7">
-            Change Name
+            Create New Admin
           </Dialog.Title>
 
           <form
@@ -80,11 +23,12 @@ const ChangeNameModal = ({ isOpen, onClose }) => {
               const adminName = e.target.adminName.value;
               const adminId = e.target.adminId.value;
               const password = e.target.password.value;
+
               if (adminName.length < 3) {
                 toast.error('Admin Name must be at least 3 characters');
                 return;
               }
-              if (adminId.length !== 6) {
+              if (adminId.length !== 6 || isNaN(adminId)) {
                 toast.error('Admin ID must be 6 digits');
                 return;
               }
@@ -92,12 +36,15 @@ const ChangeNameModal = ({ isOpen, onClose }) => {
                 toast.error('Password must be at least 4 characters');
                 return;
               }
-              // ✅ Success Toast
-              toast.success('New Admin Successfully Created');
 
-              console.log('Admin Name:', adminName);
-              console.log('Admin ID:', adminId);
-              console.log('Password:', password);
+              const newAdmin = {
+                id: Date.now().toString(),
+                name: adminName,
+                adminId,
+              };
+
+              addAdmin(newAdmin);
+              toast.success('New Admin Successfully Created');
 
               onClose();
               window.scrollTo(0, 0);
@@ -111,7 +58,7 @@ const ChangeNameModal = ({ isOpen, onClose }) => {
               name="adminName"
               type="text"
               placeholder="Enter Admin Name"
-              className="w-full border p-2 rounded mb-4 font-dm md:font-[300] md:text-[15px] font-[300] text-[16px] bg-[#D9D9D9]"
+              className="w-full border p-2 rounded mb-4 font-dm md:font-[300] md:text-[15px] text-[16px] bg-[#D9D9D9]"
             />
 
             {/* Admin ID */}
@@ -121,8 +68,8 @@ const ChangeNameModal = ({ isOpen, onClose }) => {
             <input
               name="adminId"
               type="text"
-              placeholder="Enter Admin Name"
-              className="w-full border p-2 rounded mb-4 font-dm md:font-[300] md:text-[15px] font-[300] text-[16px] bg-[#D9D9D9]"
+              placeholder="Enter Admin ID"
+              className="w-full border p-2 rounded mb-4 font-dm md:font-[300] md:text-[15px] text-[16px] bg-[#D9D9D9]"
             />
 
             {/* Password */}
@@ -132,8 +79,8 @@ const ChangeNameModal = ({ isOpen, onClose }) => {
             <input
               name="password"
               type="password"
-              placeholder="Enter Admin Name"
-              className="w-full border p-2 rounded mb-6 font-dm md:font-[300] md:text-[15px] font-[300] text-[16px] bg-[#D9D9D9]"
+              placeholder="Enter Password"
+              className="w-full border p-2 rounded mb-6 font-dm md:font-[300] md:text-[15px] text-[16px] bg-[#D9D9D9]"
             />
 
             <div className="text-center">
@@ -151,4 +98,4 @@ const ChangeNameModal = ({ isOpen, onClose }) => {
   );
 };
 
-export default ChangeNameModal;
+export default CreateAdminModal;
