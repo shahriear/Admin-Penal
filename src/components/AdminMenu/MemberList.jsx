@@ -100,7 +100,7 @@ const MemberList = () => {
 
   // Pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const usersPerPage = 10;
+  const usersPerPage = 6;
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
   const currentMembers = members.slice(indexOfFirstUser, indexOfLastUser);
@@ -121,7 +121,7 @@ const MemberList = () => {
             <input
               type="text"
               placeholder="Search"
-              className="border pr-10 pl-5 py-2 rounded font-dm font-[400] text-[16px] bg-[#D9D9D9] min-w-[150px]"
+              className="border pr-8 pl-5 py-2 rounded font-dm font-[400] text-[16px] bg-[#D9D9D9] min-w-[150px]"
             />
             <span className="absolute inset-y-0 right-3 flex items-center text-gray-700">
               <LuCrosshair size={17} />
@@ -199,30 +199,29 @@ const MemberList = () => {
           </div>
 
           {/* Fixed Pagination Controls */}
-          <div className=" bg-wh borde py-2">
-            <div className="flex justify-center gap-3 fixed bottom-0 md:left-1/2 w-full md:w-fit md:mb-9  mb-15 z-50">
-              <button
-                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                disabled={currentPage === 1}
-                className="px-4 py-1 bg-gray-300 text-sm rounded disabled:opacity-50"
-              >
-                Previous
-              </button>
 
-              <span className="px-2 py-1 text-sm text-gray-700">
-                Page {currentPage} of {totalPages}
-              </span>
+          <div className="flex justify-center gap-3 fixed bottom-0 md:left-1/2 w-full md:w-fit md:mb-9  mb-15 z-50">
+            <button
+              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+              className="px-4 py-1 bg-gray-300 text-sm rounded disabled:opacity-50"
+            >
+              Previous
+            </button>
 
-              <button
-                onClick={() =>
-                  setCurrentPage(prev => Math.min(prev + 1, totalPages))
-                }
-                disabled={currentPage === totalPages}
-                className="px-4 py-1 bg-gray-300 text-sm rounded disabled:opacity-50"
-              >
-                Next
-              </button>
-            </div>
+            <span className="px-2 py-1 text-sm text-gray-700">
+              Page {currentPage} of {totalPages}
+            </span>
+
+            <button
+              onClick={() =>
+                setCurrentPage(prev => Math.min(prev + 1, totalPages))
+              }
+              disabled={currentPage === totalPages}
+              className="px-4 py-1 bg-gray-300 text-sm rounded disabled:opacity-50"
+            >
+              Next
+            </button>
           </div>
         </div>
       </div>
