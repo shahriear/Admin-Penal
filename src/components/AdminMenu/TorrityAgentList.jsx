@@ -42,7 +42,7 @@ const TorrityAgentList = () => {
             <input
               type="text"
               placeholder="Search"
-              className="border pr-1 md:pr-10 pl-5 py-2 rounded font-dm font-[400] text-[13px] bg-[#D9D9D9] min-w-[150px]"
+              className="border pr-1 md:pr-10 pl-5 py-2 rounded font-dm font-[400] text-[16px] bg-[#D9D9D9] min-w-[150px]"
             />
             <span className="absolute inset-y-0 right-3 flex items-center text-gray-700">
               <LuCrosshair size={17} />

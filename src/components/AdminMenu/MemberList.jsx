@@ -80,7 +80,12 @@ const MemberList = () => {
             </span>
           </div>
 
-          <button className="bg-black text-white px-5 py-2 rounded font-dm md:font-[600] md:text-[16px] font-[600] text-[14px] whitespace-nowrap">
+          <button
+            onClick={() =>
+              window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+            }
+            className="bg-black text-white px-5 py-2 rounded font-dm md:font-[600] md:text-[16px] font-[600] text-[14px] whitespace-nowrap"
+          >
             Add User
           </button>
         </div>
