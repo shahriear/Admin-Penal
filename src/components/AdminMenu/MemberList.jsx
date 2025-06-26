@@ -100,14 +100,14 @@ const MemberList = () => {
 
   // Pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const usersPerPage = 6;
+  const usersPerPage = 10;
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
   const currentMembers = members.slice(indexOfFirstUser, indexOfLastUser);
   const totalPages = Math.ceil(members.length / usersPerPage);
 
   return (
-    <div className="bg-white md:p-6 rounded">
+    <div className="bg-white  rounded">
       {toastMsg && (
         <div className="fixed top-5 left-1/2 transform -translate-x-1/2 w-[90%] max-w-xs bg-green-600 text-white text-sm text-center px-4 py-2 rounded shadow-lg z-[9999] animate-slideIn">
           {toastMsg}
@@ -137,7 +137,7 @@ const MemberList = () => {
       </div>
 
       {/* Member Table */}
-      <div className="overflow-x-auto pb-2">
+      <div className="overflow-x-auto md:pb-0 pb-2">
         <div className="min-w-[850px]">
           <div className="grid grid-cols-[1fr_1fr_1fr_1fr_1fr_1.6fr] bg-[#C3C2C2] p-2 rounded text-center font-dm md:font-[500] md:text-[14px] font-[500] text-[10px]">
             <div>Account</div>
@@ -198,9 +198,8 @@ const MemberList = () => {
             ))}
           </div>
 
-          {/* Fixed Pagination Controls */}
-
-          <div className="flex justify-center gap-3 fixed bottom-0 md:left-1/2 w-full md:w-fit md:mb-9  mb-15 z-50">
+          {/* Pagination Controls */}
+          <div className="flex md:justify-center gap-3 md:mt-[40px] mt-[70px] ml-12">
             <button
               onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
