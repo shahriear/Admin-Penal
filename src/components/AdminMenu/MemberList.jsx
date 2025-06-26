@@ -8,7 +8,6 @@ import AddUserModal from '../MemberList/AddUserModal';
 
 const MemberList = () => {
   const [toastMsg, setToastMsg] = useState('');
-
   const [addUserOpen, setAddUserOpen] = useState(false);
   const [members, setMembers] = useState([
     {
@@ -107,7 +106,8 @@ const MemberList = () => {
   const totalPages = Math.ceil(members.length / usersPerPage);
 
   return (
-    <div className="bg-white  rounded">
+    <div className="bg-white rounded pb-10">
+      {/* Toast Message */}
       {toastMsg && (
         <div className="fixed top-5 left-1/2 transform -translate-x-1/2 w-[90%] max-w-xs bg-green-600 text-white text-sm text-center px-4 py-2 rounded shadow-lg z-[9999] animate-slideIn">
           {toastMsg}
@@ -129,7 +129,7 @@ const MemberList = () => {
           </div>
           <button
             onClick={() => setAddUserOpen(true)}
-            className="bg-black text-white px-5 py-2 rounded font-dm md:font-[600] md:text-[16px] font-[600] text-[14px] whitespace-nowrap"
+            className="bg-black text-white px-5 py-2 rounded font-dm font-[600] text-[14px] md:text-[16px] whitespace-nowrap"
           >
             Add User
           </button>
@@ -137,9 +137,9 @@ const MemberList = () => {
       </div>
 
       {/* Member Table */}
-      <div className="overflow-x-auto md:pb-0 pb-2">
+      <div className="overflow-x-auto">
         <div className="min-w-[850px]">
-          <div className="grid grid-cols-[1fr_1fr_1fr_1fr_1fr_1.6fr] bg-[#C3C2C2] p-2 rounded text-center font-dm md:font-[500] md:text-[14px] font-[500] text-[10px]">
+          <div className="grid grid-cols-[1fr_1fr_1fr_1fr_1fr_1.6fr] bg-[#C3C2C2] p-2 rounded text-center font-dm font-[500] text-[10px] md:text-[14px]">
             <div>Account</div>
             <div>Password</div>
             <div>Balance</div>
@@ -152,13 +152,13 @@ const MemberList = () => {
             {currentMembers.map((m, index) => (
               <div
                 key={index}
-                className="grid grid-cols-[1fr_1fr_1fr_1fr_1fr_1.6fr] gap-1 items-center bg-gray-100 rounded p-2 text-center font-dm md:font-[400] md:text-[14px] font-[400] text-[10px]"
+                className="grid grid-cols-[1fr_1fr_1fr_1fr_1fr_1.6fr] gap-1 items-center bg-gray-100 rounded p-2 text-center font-dm font-[400] text-[10px] md:text-[14px]"
               >
                 <div>{m.account}</div>
                 <div>{m.password}</div>
                 <div className="flex items-center justify-center gap-1">
                   {m.balance}
-                  <FaPenNib className="text-gray-600 md:text-sm text-[9px] md:text-[11px] cursor-pointer ml-1" />
+                  <FaPenNib className="text-gray-600 text-[11px] md:text-sm cursor-pointer ml-1" />
                 </div>
                 <div>
                   <span
@@ -172,10 +172,10 @@ const MemberList = () => {
                 <div>{m.agent}</div>
                 <div className="flex gap-1 justify-center items-center flex-nowrap">
                   <button
-                    className="min-w-[90px] bg-blue-500 text-white px-2 py-1 rounded flex items-center justify-center whitespace-nowrap font-dm text-[10px] md:text-[12px]"
+                    className="min-w-[90px] bg-blue-500 text-white px-2 py-1 rounded flex items-center justify-center whitespace-nowrap text-[10px] md:text-[12px]"
                     onClick={() => setEditMember(m)}
                   >
-                    <FaUserEdit className="mr-1 md:text-base text-[12px]" />
+                    <FaUserEdit className="mr-1 text-[12px] md:text-base" />
                     Profile Edit
                   </button>
                   {!m.blocked ? (
@@ -197,31 +197,31 @@ const MemberList = () => {
               </div>
             ))}
           </div>
+        </div>
+      </div>
 
-          {/* Pagination Controls */}
-          <div className="flex md:justify-center gap-3 md:mt-[40px] mt-[70px] ml-12">
-            <button
-              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-              disabled={currentPage === 1}
-              className="px-4 py-1 bg-gray-300 text-sm rounded disabled:opacity-50"
-            >
-              Previous
-            </button>
+      {/* Pagination Controls */}
+      <div className="flex justify-end mt-6 mb-4 pr-4">
+        <div className="flex items-center gap-2 font-semibold">
+          <button
+            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+            className="px-3 py-2  text-lg "
+          >
+            ←
+          </button>
 
-            <span className="px-2 py-1 text-sm text-gray-700">
-              Page {currentPage} of {totalPages}
-            </span>
+          <span className="text-sm text-gray-700">0{currentPage}</span>
 
-            <button
-              onClick={() =>
-                setCurrentPage(prev => Math.min(prev + 1, totalPages))
-              }
-              disabled={currentPage === totalPages}
-              className="px-4 py-1 bg-gray-300 text-sm rounded disabled:opacity-50"
-            >
-              Next
-            </button>
-          </div>
+          <button
+            onClick={() =>
+              setCurrentPage(prev => Math.min(prev + 1, totalPages))
+            }
+            disabled={currentPage === totalPages}
+            className="px-3 py-2 text-lg"
+          >
+            →
+          </button>
         </div>
       </div>
 
