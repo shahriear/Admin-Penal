@@ -11,7 +11,7 @@ const LockConfirmModal = ({ isOpen, onClose, onConfirm, name }) => {
           </Dialog.Title>
           <p className="font-dm font-[400] md:text-[14px] text-[13px] text-gray-600 mb-6">
             Are you sure you want to
-            <span className="text-red-600"> banned</span>
+            <span className="text-red-600"> banned </span>
             {name}?
           </p>
           <div className="flex justify-center gap-2">

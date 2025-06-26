@@ -28,6 +28,15 @@ const MemberList = () => {
       agent: '1722350',
       blocked: true,
     },
+    {
+      id: 3,
+      account: '01773647834',
+      password: '@#boomST25@#',
+      balance: '$12,000.00',
+      status: 'Active',
+      agent: '1722350',
+      blocked: false,
+    },
   ]);
 
   const [selectedMember, setSelectedMember] = useState(null);
