@@ -30,7 +30,7 @@ const DeleteAdminModal = ({ isOpen, onClose }) => {
           {!selectedAdmin ? (
             <>
               <Dialog.Title className="text-lg font-semibold mb-4">
-                Delete Admin
+                Admin List
               </Dialog.Title>
               {admins.length === 0 ? (
                 <p className="text-sm text-gray-500">No admins found.</p>
