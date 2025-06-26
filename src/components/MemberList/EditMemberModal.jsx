@@ -1,3 +1,174 @@
+// import React, { useState, useRef, useEffect } from 'react';
+// import DeleteConfirmModal from '../DeletePopup/DeleteConfirmModal';
+
+// const EditMemberModal = ({ member, onClose, onUpdate, onDelete }) => {
+//   const [fields, setFields] = useState({
+//     name: member.name || '',
+//     password: member.password,
+//     account: member.account,
+//     agent: member.agent,
+//   });
+
+//   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+//   const modalRef = useRef();
+
+//   const handleChange = e => {
+//     const { name, value } = e.target;
+//     setFields(prev => ({ ...prev, [name]: value }));
+//   };
+
+//   const confirmUpdate = field => {
+//     onUpdate(member.id, field, fields[field]);
+//   };
+
+//   // Outside click to close modal
+//   useEffect(() => {
+//     const handleClickOutside = event => {
+//       if (modalRef.current && !modalRef.current.contains(event.target)) {
+//         onClose();
+//       }
+//     };
+//     document.addEventListener('mousedown', handleClickOutside);
+//     return () => document.removeEventListener('mousedown', handleClickOutside);
+//   }, [onClose]);
+
+//   return (
+//     <>
+//       {/* Overlay */}
+//       <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-40 px-4">
+//         <div
+//           ref={modalRef}
+//           className="bg-white w-full max-w-md p-6 rounded-xl shadow-lg"
+//         >
+//           <h3 className="text-lg md:text-xl font-bold mb-5 text-center">
+//             Edit Member Profile
+//           </h3>
+
+//           {/* Name Field */}
+//           <div className="mb-4">
+//             <label className="block mb-1 text-sm font-medium text-gray-700">
+//               Name
+//             </label>
+//             <div className="flex items-center gap-2">
+//               <input
+//                 type="text"
+//                 name="name"
+//                 value={fields.name}
+//                 onChange={handleChange}
+//                 className="flex-grow border bg-[#D9D9D9] border-gray-300 p-2 rounded text-sm"
+//               />
+//               <button
+//                 onClick={() => confirmUpdate('name')}
+//                 className="bg-black text-white text-sm px-4 py-2 rounded font-medium"
+//               >
+//                 Confirm
+//               </button>
+//             </div>
+//             <p className="text-[10px] text-gray-600">Name : Nancy Himel</p>
+//           </div>
+
+//           {/* Password Field */}
+//           <div className="mb-4">
+//             <label className="block mb-1 text-sm font-medium text-gray-700">
+//               Password
+//             </label>
+//             <div className="flex items-center gap-2">
+//               <input
+//                 type="text"
+//                 name="password"
+//                 value={fields.password}
+//                 onChange={handleChange}
+//                 className="flex-grow border bg-[#D9D9D9] border-gray-300 p-2 rounded text-sm"
+//               />
+//               <button
+//                 onClick={() => confirmUpdate('password')}
+//                 className="bg-black text-white text-sm px-4 py-2 rounded font-medium"
+//               >
+//                 Confirm
+//               </button>
+//             </div>
+//           </div>
+
+//           {/* Number Field */}
+//           <div className="mb-4">
+//             <label className="block mb-1 text-sm font-medium text-gray-700">
+//               Number
+//             </label>
+//             <div className="flex items-center gap-2">
+//               <input
+//                 type="text"
+//                 name="account"
+//                 value={fields.account}
+//                 onChange={handleChange}
+//                 className="flex-grow border bg-[#D9D9D9] border-gray-300 p-2 rounded text-sm"
+//               />
+//               <button
+//                 onClick={() => confirmUpdate('account')}
+//                 className="bg-black text-white text-sm px-4 py-2 rounded font-medium"
+//               >
+//                 Confirm
+//               </button>
+//             </div>
+//           </div>
+
+//           {/* Agent Field */}
+//           <div className="mb-6">
+//             <label className="block mb-1 text-sm font-medium text-gray-700">
+//               Agent Number{' '}
+//               <span className="text-red-600 font-[400]">
+//                 (For Change Agent)
+//               </span>
+//             </label>
+//             <div className="flex items-center gap-2">
+//               <input
+//                 type="text"
+//                 name="agent"
+//                 value={fields.agent}
+//                 onChange={handleChange}
+//                 className="flex-grow border bg-[#D9D9D9] border-gray-300 p-2 rounded text-sm"
+//               />
+//               <button
+//                 onClick={() => confirmUpdate('agent')}
+//                 className="bg-black text-white text-sm px-4 py-2 rounded font-medium"
+//               >
+//                 Confirm
+//               </button>
+//             </div>
+//             <p className="text-[10px] text-gray-600">
+//               Name : Nancy Himel / <span className="text-red-600">Invalid</span>
+//             </p>
+//           </div>
+
+//           {/* Delete Button */}
+//           <div className="flex justify-start">
+//             <button
+//               onClick={() => setShowDeleteConfirm(true)}
+//               className="text-red-500 border border-red-500 px-4 py-2 rounded text-sm font-medium"
+//             >
+//               Delete User
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* Delete Modal */}
+//       <DeleteConfirmModal
+//         isOpen={showDeleteConfirm}
+//         onClose={() => setShowDeleteConfirm(false)}
+//         onConfirm={() => {
+//           if (member?.id) {
+//             onDelete(member.id);
+//             setShowDeleteConfirm(false);
+//           }
+//         }}
+//         name={fields.name}
+//       />
+//     </>
+//   );
+// };
+
+// export default EditMemberModal;
+
 import React, { useState } from 'react';
 import DeleteConfirmModal from '../DeletePopup/DeleteConfirmModal';
 
@@ -23,7 +194,7 @@ const EditMemberModal = ({ member, onClose, onUpdate, onDelete }) => {
   return (
     <>
       {/* Main Edit Modal */}
-      <div className="fixed inset-0 bg-black/70 bg-opacity-40 flex justify-center items-center z-40">
+      <div className="fixed inset-0 bg-black/70 bg-opacity-40 flex justify-center items-center z-40 px-4">
         <div className="bg-white p-6 rounded-xl w-full max-w-md shadow-lg">
           <h3 className="text-lg font-bold mb-4 text-center">
             Edit Member Profile
@@ -42,30 +213,32 @@ const EditMemberModal = ({ member, onClose, onUpdate, onDelete }) => {
                 value={fields[field]}
                 onChange={handleChange}
                 placeholder={label}
-                className="flex-grow border p-2 rounded mr-2"
+                className="flex-grow border p-2 rounded mr-2 bg-[#D9D9D9] border-gray-300"
               />
               <button
                 onClick={() => confirmUpdate(field)}
-                className="bg-green-500 text-white px-3 py-1 rounded"
+                className="bg-black font-dm font-[400] text-[17px] text-white px-3 py-1 rounded"
               >
                 Confirm
               </button>
             </div>
           ))}
 
-          <button
-            className="bg-red-600 text-white px-4 py-2 rounded w-full mt-4"
-            onClick={() => setShowDeleteConfirm(true)}
-          >
-            Delete User
-          </button>
+          <div className="flex justify-between gap-4 mt-5">
+            <button
+              className="text-red-500 border border-red-500 px-4 py-2 rounded text-sm font-medium"
+              onClick={() => setShowDeleteConfirm(true)}
+            >
+              Delete User
+            </button>
 
-          <button
-            className="mt-3 text-gray-600 underline w-full"
-            onClick={onClose}
-          >
-            Cancel
-          </button>
+            <button
+              className="text-gray-600 border border-gray-400 px-4 py-2 rounded text-sm font-medium"
+              onClick={onClose}
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       </div>
 

@@ -42,7 +42,7 @@ const AddUserModal = ({ isOpen, onClose, onConfirm, onSuccess }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50 p-4">
+    <div className="fixed inset-0 bg-black/80 flex justify-center items-center z-50 p-4">
       <div className="bg-white rounded-lg p-6 w-full max-w-md relative">
         {/* Toast */}
         {toast && (
@@ -51,11 +51,9 @@ const AddUserModal = ({ isOpen, onClose, onConfirm, onSuccess }) => {
           </div>
         )}
 
-        <h2 className="text-lg font-bold mb-4 text-center">Add New User</h2>
-
         {/* Agent Number */}
-        <div className="mb-3">
-          <label className="block text-sm font-medium mb-1">
+        <div className="mb-3 mt-2">
+          <label className="block font-dm font-[400] md:text-[16px] text-[14px] mb-1">
             Enter Agent Number *
           </label>
           <input
@@ -63,8 +61,8 @@ const AddUserModal = ({ isOpen, onClose, onConfirm, onSuccess }) => {
             name="agent"
             value={form.agent}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
-            placeholder="1722350"
+            className="w-full border p-2 rounded bg-[#D9D9D9]"
+            placeholder=""
           />
           {errors.agent && (
             <p className="text-red-600 text-sm mt-1">{errors.agent}</p>
@@ -73,7 +71,7 @@ const AddUserModal = ({ isOpen, onClose, onConfirm, onSuccess }) => {
 
         {/* Mobile Number */}
         <div className="mb-3">
-          <label className="block text-sm font-medium mb-1">
+          <label className="block font-dm font-[400] md:text-[16px] text-[14px] mb-1">
             Enter User Mobile Number *
           </label>
           <input
@@ -81,7 +79,7 @@ const AddUserModal = ({ isOpen, onClose, onConfirm, onSuccess }) => {
             name="number"
             value={form.number}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border p-2 rounded bg-[#D9D9D9]"
             placeholder="017xxxxxxxx"
           />
           {errors.number && (
@@ -91,7 +89,7 @@ const AddUserModal = ({ isOpen, onClose, onConfirm, onSuccess }) => {
 
         {/* Password */}
         <div className="mb-3">
-          <label className="block text-sm font-medium mb-1">
+          <label className="block font-dm font-[400] md:text-[16px] text-[14px] mb-1">
             Enter Password *
           </label>
           <input
@@ -99,7 +97,7 @@ const AddUserModal = ({ isOpen, onClose, onConfirm, onSuccess }) => {
             name="password"
             value={form.password}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border p-2 rounded bg-[#D9D9D9]"
             placeholder="********"
           />
           {errors.password && (
@@ -109,7 +107,7 @@ const AddUserModal = ({ isOpen, onClose, onConfirm, onSuccess }) => {
 
         {/* Optional Amount */}
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">
+          <label className="block  font-dm font-[400] md:text-[16px] text-[14px] mb-1">
             Enter Amount (Optional)
           </label>
           <input
@@ -117,7 +115,7 @@ const AddUserModal = ({ isOpen, onClose, onConfirm, onSuccess }) => {
             name="amount"
             value={form.amount}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border p-2 rounded bg-[#D9D9D9]"
             placeholder="$0.00"
           />
         </div>
