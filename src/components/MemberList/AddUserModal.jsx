@@ -56,6 +56,7 @@ const AddUserModal = ({ isOpen, onClose, onConfirm, onSuccess }) => {
           <label className="block font-dm font-[400] md:text-[16px] text-[14px] mb-1">
             Enter Agent Number *
           </label>
+
           <input
             type="text"
             name="agent"

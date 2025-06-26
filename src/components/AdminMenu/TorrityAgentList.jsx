@@ -3,6 +3,8 @@ import { FaUserEdit, FaPenAlt, FaPenNib } from 'react-icons/fa';
 import { LuCrosshair } from 'react-icons/lu';
 import EditAgentModal from '../TorrityModal/EditAgentModal';
 import AddTerritoryAgentModal from '../TorrityModal/AddTerritoryAgentModal';
+import LockConfirmModal from '../MemberList/LockConfirmModal';
+import UnblockConfirmModal from '../MemberList/UnblockConfirmModal';
 
 const TorrityAgentList = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -11,7 +13,7 @@ const TorrityAgentList = () => {
   const [members, setMembers] = useState([
     {
       id: 1,
-      account: '01773647834',
+      account: '01773777834',
       password: '@#boomST25@#',
       balance: '$12,000.00',
       status: 'Active',
@@ -19,7 +21,7 @@ const TorrityAgentList = () => {
     },
     {
       id: 2,
-      account: '01582365489',
+      account: '01582576489',
       password: 'Test@123',
       balance: '$6,500.00',
       status: 'Active',
@@ -27,7 +29,7 @@ const TorrityAgentList = () => {
     },
     {
       id: 3,
-      account: '01671234567',
+      account: '01671242567',
       password: 'Agent123',
       balance: '$9,000.00',
       status: 'Active',
@@ -35,7 +37,7 @@ const TorrityAgentList = () => {
     },
     {
       id: 4,
-      account: '01773647834',
+      account: '01773642474',
       password: '@#boomST25@#',
       balance: '$12,000.00',
       status: 'Active',
@@ -43,7 +45,7 @@ const TorrityAgentList = () => {
     },
     {
       id: 5,
-      account: '01582365489',
+      account: '015836465489',
       password: 'Test@123',
       balance: '$6,500.00',
       status: 'Active',
@@ -51,7 +53,7 @@ const TorrityAgentList = () => {
     },
     {
       id: 6,
-      account: '01671234567',
+      account: '016120034567',
       password: 'Agent123',
       balance: '$9,000.00',
       status: 'Active',
@@ -59,7 +61,7 @@ const TorrityAgentList = () => {
     },
     {
       id: 7,
-      account: '01773647834',
+      account: '017736777834',
       password: '@#boomST25@#',
       balance: '$12,000.00',
       status: 'Active',
@@ -67,7 +69,7 @@ const TorrityAgentList = () => {
     },
     {
       id: 8,
-      account: '01582365489',
+      account: '015826665489',
       password: 'Test@123',
       balance: '$6,500.00',
       status: 'Active',
@@ -75,7 +77,7 @@ const TorrityAgentList = () => {
     },
     {
       id: 9,
-      account: '01671234567',
+      account: '016713324567',
       password: 'Agent123',
       balance: '$9,000.00',
       status: 'Active',
@@ -83,7 +85,7 @@ const TorrityAgentList = () => {
     },
     {
       id: 10,
-      account: '01773647834',
+      account: '01773472834',
       password: '@#boomST25@#',
       balance: '$12,000.00',
       status: 'Active',
@@ -91,7 +93,7 @@ const TorrityAgentList = () => {
     },
     {
       id: 11,
-      account: '01582365489',
+      account: '01586265489',
       password: 'Test@123',
       balance: '$6,500.00',
       status: 'Active',
@@ -99,7 +101,7 @@ const TorrityAgentList = () => {
     },
     {
       id: 12,
-      account: '01671234567',
+      account: '016745234567',
       password: 'Agent123',
       balance: '$9,000.00',
       status: 'Active',
@@ -127,13 +129,12 @@ const TorrityAgentList = () => {
 
   const handleBlockToggle = (agent, type) => {
     setBlockedAgent(agent);
-    setConfirmType(type);
+    setConfirmType(type); // block / unblock
   };
 
   const confirmBlockToggle = () => {
-    if (!blockedAgent) return;
     const updated = members.map(m =>
-      m.id === blockedAgent.id
+      m.account === blockedAgent.account
         ? {
             ...m,
             blocked: confirmType === 'block',
@@ -155,7 +156,7 @@ const TorrityAgentList = () => {
               placeholder="Search"
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
-              className="border pr-1 md:pr-10 pl-2 py-2 rounded font-dm font-[400] text-[16px] bg-[#D9D9D9] min-w-[150px]"
+              className="border pr-2 md:pr-10 pl-2 py-2 rounded font-dm font-[400] text-[16px] bg-[#D9D9D9] min-w-[150px]"
             />
             <span className="absolute inset-y-0 right-3 flex items-center text-gray-700">
               <LuCrosshair size={17} />
@@ -194,7 +195,7 @@ const TorrityAgentList = () => {
                 <div>
                   <span
                     className={`px-2 py-0.5 rounded text-white text-[10px] md:text-xs ${
-                      m.status === 'Active' ? 'bg-green-600' : 'bg-red-600'
+                      m.status === 'Active' ? 'bg-green-600' : 'bg-[#FDAC29]'
                     }`}
                   >
                     {m.status}
@@ -210,13 +211,13 @@ const TorrityAgentList = () => {
                   </button>
                   <button
                     className={`min-w-[90px] ${
-                      m.blocked ? 'bg-green-600' : 'bg-blue-600'
+                      m.blocked ? 'bg-[#FDAC29]' : 'bg-blue-600'
                     } text-white px-2 py-1 rounded flex items-center justify-center`}
                     onClick={() =>
                       handleBlockToggle(m, m.blocked ? 'unblock' : 'block')
                     }
                   >
-                    <FaPenAlt className="mr-1 md:text-sm" />{' '}
+                    <FaPenAlt className="mr-1" />
                     {m.blocked ? 'Unblock' : 'Lock Up'}
                   </button>
                 </div>
@@ -269,32 +270,20 @@ const TorrityAgentList = () => {
         onConfirm={handleAddAgent}
       />
 
-      {blockedAgent && (
-        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 px-4">
-          <div className="bg-white rounded-xl p-6 w-full max-w-sm text-center">
-            <p className="text-lg font-semibold mb-4">
-              Are you sure you want to{' '}
-              {confirmType === 'block' ? 'Block' : 'Unblock'} this agent?
-            </p>
-            <div className="flex justify-center gap-4">
-              <button
-                onClick={() => setBlockedAgent(null)}
-                className="px-4 py-2 bg-gray-300 rounded text-sm"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={confirmBlockToggle}
-                className={`px-4 py-2 rounded text-sm text-white ${
-                  confirmType === 'block' ? 'bg-red-600' : 'bg-green-600'
-                }`}
-              >
-                {confirmType === 'block' ? 'Block' : 'Unblock'}
-              </button>
-            </div>
-          </div>
-        </div>
+      {blockedAgent && confirmType === 'block' && (
+        <LockConfirmModal
+          isOpen={true}
+          onClose={() => setBlockedAgent(null)}
+          onConfirm={confirmBlockToggle}
+          name={blockedAgent.account}
+        />
       )}
+      <UnblockConfirmModal
+        isOpen={!!(blockedAgent && confirmType === 'unblock')}
+        onClose={() => setBlockedAgent(null)}
+        onConfirm={confirmBlockToggle}
+        name={blockedAgent?.account}
+      />
     </div>
   );
 };
