@@ -19,7 +19,7 @@ const AddAgentModal = ({ isOpen, onClose }) => {
       <div className="fixed inset-0 bg-black/50" aria-hidden="true" />
       <div className="fixed inset-0 flex items-center justify-center p-4">
         <Dialog.Panel className="bg-white w-full max-w-md rounded-lg shadow-lg p-6">
-          <Dialog.Title className="text-lg font-semibold mb-4">
+          <Dialog.Title className="font-dm font-[600] md:text-[20px] text-[18px] mb-4">
             Add New Agent
           </Dialog.Title>
 
@@ -27,7 +27,7 @@ const AddAgentModal = ({ isOpen, onClose }) => {
             Select Agent Type*
           </label> */}
           <select
-            className="w-full p-2 border rounded mb-4 bg-[#CCCACA] "
+            className="w-full p-2 border rounded mb-4 bg-[#CCCACA] font-dm font-[400] md:text-[16px] text-[15px] "
             value={agentType}
             onChange={e => {
               setAgentType(e.target.value);
@@ -38,13 +38,22 @@ const AddAgentModal = ({ isOpen, onClose }) => {
               setMasterName('');
             }}
           >
-            <option className="bg-[#EBE9E9]" value="">
+            <option
+              className="bg-[#EBE9E9] font-dm font-[400] md:text-[16px] text-[14px]"
+              value=""
+            >
               Select Agent Type*
             </option>
-            <option className="bg-[#EBE9E9]" value="Master Agent">
+            <option
+              className="bg-[#EBE9E9] font-dm font-[400] md:text-[16px] text-[14px]"
+              value="Master Agent"
+            >
               Master Agent
             </option>
-            <option className="bg-[#EBE9E9]" value="Normal Agent">
+            <option
+              className="bg-[#EBE9E9] font-dm font-[400] md:text-[16px] text-[14px]"
+              value="Normal Agent"
+            >
               Normal Agent
             </option>
           </select>
@@ -55,11 +64,16 @@ const AddAgentModal = ({ isOpen, onClose }) => {
                 Select Territory Area*
               </label> */}
               <select
-                className="w-full p-2 border rounded bg-[#D9D9D9]"
+                className="w-full p-2 border rounded bg-[#D9D9D9] font-[400] md:text-[16px] text-[14px]"
                 value={territoryArea}
                 onChange={e => setTerritoryArea(e.target.value)}
               >
-                <option value="">Select Territory Area*-</option>
+                <option
+                  className="font-[400] md:text-[16px] text-[15px]"
+                  value=""
+                >
+                  Select Territory Area*-
+                </option>
                 <option>Dhaka</option>
                 <option>Barishal</option>
                 <option>Chittagong</option>
@@ -73,7 +87,7 @@ const AddAgentModal = ({ isOpen, onClose }) => {
               <input
                 type="text"
                 placeholder="Enter Master Agent ID (6 Digit)"
-                className="w-full border rounded px-3 py-2 bg-[#D9D9D9]"
+                className="w-full border rounded px-3 py-2 bg-[#D9D9D9] font-[400] md:text-[16px] text-[14px]"
                 maxLength={6}
                 value={masterId}
                 onChange={e => setMasterId(e.target.value.replace(/\D/, ''))}
@@ -81,7 +95,7 @@ const AddAgentModal = ({ isOpen, onClose }) => {
               <input
                 type="password"
                 placeholder="Enter Password"
-                className="w-full border rounded px-3 py-2 bg-[#D9D9D9]"
+                className="w-full border rounded px-3 py-2 bg-[#D9D9D9] font-[400] md:text-[16px] text-[14px]"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
               />
@@ -93,7 +107,7 @@ const AddAgentModal = ({ isOpen, onClose }) => {
               <input
                 type="text"
                 placeholder="Enter Master Agent ID *"
-                className="w-full border rounded px-3 py-2 bg-[#D9D9D9]"
+                className="w-full border rounded px-3 py-2 bg-[#D9D9D9] font-[400] md:text-[16px] text-[14px]"
                 value={masterId}
                 onChange={e => {
                   setMasterId(e.target.value);
@@ -111,7 +125,7 @@ const AddAgentModal = ({ isOpen, onClose }) => {
               <input
                 type="text"
                 placeholder="Enter Agent ID (4 Digit Only)"
-                className="w-full border rounded px-3 py-2 bg-[#D9D9D9]"
+                className="w-full border rounded px-3 py-2 bg-[#D9D9D9] font-[400] md:text-[16px] text-[14px]"
                 value={agentId}
                 onChange={handleAgentIdChange}
                 maxLength={4}
@@ -119,7 +133,7 @@ const AddAgentModal = ({ isOpen, onClose }) => {
               <input
                 type="password"
                 placeholder="Enter Password *"
-                className="w-full border rounded px-3 py-2 bg-[#D9D9D9]"
+                className="w-full border rounded px-3 py-2 bg-[#D9D9D9] font-[400] md:text-[16px] text-[14px]"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
               />
@@ -127,7 +141,7 @@ const AddAgentModal = ({ isOpen, onClose }) => {
           )}
 
           <div className="mt-6 flex justify-center gap-2">
-            <button className="px-4 py-2 bg-black text-white rounded w-full ">
+            <button className="px-4 py-2 bg-black text-white rounded w-full font-dm font-[700] md:text-[18px] text-[15px] ">
               Confirm
             </button>
           </div>

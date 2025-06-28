@@ -41,11 +41,11 @@ const EditAgentModal = ({ agent, onClose, onUpdate, onDelete }) => {
                 value={fields[field]}
                 onChange={handleChange}
                 placeholder={label}
-                className="flex-grow border p-2 rounded bg-[#D9D9D9] border-gray-300 text-sm"
+                className="flex-grow border p-2 rounded bg-[#D9D9D9] border-gray-300 font-dm text-[14px]"
               />
               <button
                 onClick={() => confirmUpdate(field)}
-                className="bg-black text-white px-4 py-2 rounded text-sm whitespace-nowrap"
+                className="bg-black text-white px-4 py-2 rounded font-dm font-[600] md:text-[16px] text-[12px] whitespace-nowrap"
               >
                 Confirm
               </button>
@@ -54,13 +54,13 @@ const EditAgentModal = ({ agent, onClose, onUpdate, onDelete }) => {
 
           <div className="flex justify-between items-center flex-wrap gap-2 mt-6">
             <button
-              className="text-red-500 border border-red-500 px-4 py-2 rounded text-sm w-full sm:w-auto"
+              className="text-red-500 border border-red-500 px-4 py-2 rounded text-sm  sm:w-auto"
               onClick={() => setShowDeleteConfirm(true)}
             >
               Delete Agent
             </button>
             <button
-              className="text-gray-600 underline text-sm w-full sm:w-auto"
+              className="text-gray-600 underline text-sm  sm:w-auto"
               onClick={onClose}
             >
               Cancel

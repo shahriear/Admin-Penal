@@ -11,11 +11,11 @@ const BalanceModal = ({ isOpen, onClose }) => {
   return (
     <>
       <Dialog open={isOpen} onClose={onClose} className="relative z-50">
-        <div className="fixed inset-0 bg-black/50" aria-hidden="true" />
+        <div className="fixed inset-0 bg-black/70" aria-hidden="true" />
         <div className="fixed inset-0 flex items-center justify-center p-4">
           <Dialog.Panel className="bg-[#D9D9D9] w-full max-w-xs rounded-lg shadow-lg p-6 space-y-4">
             <button
-              className="w-full bg-black text-white py-2 rounded"
+              className="w-full bg-black text-white py-2 rounded font-dm font[400] md:text-[19px] text-[16px]"
               onClick={() => {
                 setShowAddBalance(true);
                 onClose();
@@ -24,7 +24,7 @@ const BalanceModal = ({ isOpen, onClose }) => {
               Add Balance
             </button>
             <button
-              className="w-full bg-black text-white py-2 rounded"
+              className="w-full bg-black text-white py-2 rounded font-dm font[400] md:text-[19px] text-[16px]"
               onClick={() => {
                 setShowWithdrawBalance(true);
                 onClose();

@@ -216,18 +216,18 @@ const EditMemberModal = ({ member, onClose, onUpdate, onDelete }) => {
                 value={fields[field]}
                 onChange={handleChange}
                 placeholder={label}
-                className="flex-grow min-w-[150px] border px-3 py-2 rounded bg-[#D9D9D9] text-sm sm:text-base"
+                className="flex-grow min-w-[150px] border px-3 py-2 rounded bg-[#D9D9D9] font-dm text-[14px]"
               />
               <button
                 onClick={() => confirmUpdate(field)}
-                className="bg-black text-white px-4 py-2 rounded text-sm sm:text-base"
+                className="bg-black text-white px-4 py-2 rounded font-dm font-[600] md:text-[16px] text-[14px]"
               >
                 Confirm
               </button>
             </div>
           ))}
 
-          <div className="flex flex-col sm:flex-row justify-between gap-3 mt-6">
+          <div className="flex sm:flex-row justify-between gap-9 mt-6">
             <button
               className="text-red-600 border border-red-600 px-4 py-2 rounded text-sm font-medium w-full sm:w-auto"
               onClick={() => setShowDeleteConfirm(true)}

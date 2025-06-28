@@ -25,11 +25,11 @@ const EditMasterAgentModal = ({
                 value={name}
                 placeholder="Name"
                 onChange={e => setName(e.target.value)}
-                className="border px-3 py-1 rounded w-full"
+                className="border px-3 py-1 rounded w-full font-dm text-[14px]"
               />
               <button
                 onClick={() => onUpdate({ ...agent, name })}
-                className="bg-black text-white px-4 py-1 rounded whitespace-nowrap"
+                className="bg-black text-white px-4 py-1 rounded whitespace-nowrap font-dm font-[700] md:text-[16px] text-[14px]"
               >
                 Confirm
               </button>
@@ -45,11 +45,11 @@ const EditMasterAgentModal = ({
                 value={password}
                 placeholder="******"
                 onChange={e => setPassword(e.target.value)}
-                className="border px-3 py-1 rounded w-full"
+                className="border px-3 py-1 rounded w-full font-dm text-[14px]"
               />
               <button
                 onClick={() => onUpdate({ ...agent, password })}
-                className="bg-black text-white px-4 py-1 rounded whitespace-nowrap"
+                className="bg-black text-white px-4 py-1 rounded whitespace-nowrap font-dm font-[700] md:text-[16px] text-[14px]"
               >
                 Confirm
               </button>
@@ -60,7 +60,7 @@ const EditMasterAgentModal = ({
           <div className="pt-1">
             <button
               onClick={() => onDelete(agent)}
-              className=" text-red-700 font-dm border px-2 py-1 rounded w-fit"
+              className=" text-red-700 font-dm font-[500] md:text-[16px] text-[14px] border px-2 py-1 rounded w-fit"
             >
               Delete Agent
             </button>

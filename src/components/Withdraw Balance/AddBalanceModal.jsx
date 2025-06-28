@@ -13,11 +13,11 @@ const AddBalanceModal = ({ isOpen, onClose }) => {
           <input
             type="text"
             placeholder="Enter Amount *"
-            className="w-full border rounded px-3 py-2 bg-white"
+            className="w-full border rounded px-3 py-2 bg-white font-dm font[400] md:text-[16px] text-[14px]"
             value={amount}
             onChange={e => setAmount(e.target.value)}
           />
-          <button className="w-full bg-black text-white py-2 rounded">
+          <button className="w-full bg-black text-white py-2 rounded font-dm font[400] md:text-[19px] text-[16px]">
             Add Balance
           </button>
         </Dialog.Panel>

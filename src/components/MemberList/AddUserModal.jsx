@@ -63,7 +63,7 @@ const AddUserModal = ({ isOpen, onClose, onConfirm, onSuccess }) => {
             value={form.agent}
             onChange={handleChange}
             className="w-full border p-2 rounded bg-[#D9D9D9]"
-            placeholder=""
+            placeholder="Number"
           />
           {errors.agent && (
             <p className="text-red-600 text-sm mt-1">{errors.agent}</p>

@@ -90,8 +90,8 @@ const DepositTable = () => {
             <button
               key={page}
               onClick={() => handlePageChange(page)}
-              className={`px-3 py-1 rounded ${
-                page === currentPage ? 'bg-blue-600 text-white' : 'bg-gray-300'
+              className={`px-2 text-[11px]  rounded ${
+                page === currentPage ? 'bg-blue-500 text-white' : 'bg-gray-300'
               }`}
             >
               {page}
