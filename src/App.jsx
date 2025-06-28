@@ -1,20 +1,19 @@
-import { ToastContainer } from 'react-toastify';
+// src/App.jsx
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './components/page/Login';
 import Dashboard from './components/Dashboard';
+import ForgotPassword from './components/page/ForgotPassword';
 
 const App = () => {
   return (
-    <>
-      <Dashboard />
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        closeOnClick
-        pauseOnHover
-        draggable
-        toastClassName="!rounded-md !shadow-md !text-[11px] md:!text-[15px] !p-3 !pr-4 !w-[60%] md:!w-[320px] !ml-auto !mr-2"
-        bodyClassName="font-dm text-[13px] md:text-[20px]"
-      />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+      </Routes>
+    </Router>
   );
 };
 

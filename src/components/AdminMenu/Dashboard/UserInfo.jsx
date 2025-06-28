@@ -20,7 +20,7 @@ const UserInfo = ({ size = 'md', className = '' }) => {
       />
       <div className="text-left">
         <div className="font-dm md:font-[600] md:text-[12px] font-[600] text-[12px]">
-          Shuvo
+          Nancy Himel
         </div>
         <div className="font-dm md:font-[300] md:text-[8px] font-[300] text-[8px] text-gray-500">
           Admin User
