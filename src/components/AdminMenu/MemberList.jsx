@@ -136,7 +136,7 @@ const MemberList = () => {
             <input
               type="text"
               placeholder="Search"
-              className="border pr-  pl-5 py-2 rounded font-dm text-[14px] sm:text-[16px] bg-[#D9D9D9] min-w-[150px] sm:min-w-[200px]"
+              className="border pr-  pl-5 py-2 rounded font-dm text-[16px] sm:text-[16px] bg-[#D9D9D9] min-w-[150px] sm:min-w-[200px]"
             />
             <span className="absolute inset-y-0 right-3 flex items-center text-gray-700">
               <LuCrosshair size={17} />

@@ -41,7 +41,7 @@ const EditAgentModal = ({ agent, onClose, onUpdate, onDelete }) => {
                 value={fields[field]}
                 onChange={handleChange}
                 placeholder={label}
-                className="flex-grow border p-2 rounded bg-[#D9D9D9] border-gray-300 font-dm text-[14px]"
+                className="flex-grow border p-2 rounded bg-[#D9D9D9] border-gray-300 font-dm text-[16px]"
               />
               <button
                 onClick={() => confirmUpdate(field)}

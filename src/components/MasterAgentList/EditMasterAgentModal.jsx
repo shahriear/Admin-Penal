@@ -25,7 +25,7 @@ const EditMasterAgentModal = ({
                 value={name}
                 placeholder="Name"
                 onChange={e => setName(e.target.value)}
-                className="border px-3 py-1 rounded w-full font-dm text-[14px]"
+                className="border px-3 py-1 rounded w-full font-dm text-[16px]"
               />
               <button
                 onClick={() => onUpdate({ ...agent, name })}
@@ -45,7 +45,7 @@ const EditMasterAgentModal = ({
                 value={password}
                 placeholder="******"
                 onChange={e => setPassword(e.target.value)}
-                className="border px-3 py-1 rounded w-full font-dm text-[14px]"
+                className="border px-3 py-1 rounded w-full font-dm text-[16px]"
               />
               <button
                 onClick={() => onUpdate({ ...agent, password })}
