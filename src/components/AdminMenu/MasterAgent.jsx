@@ -170,30 +170,30 @@ const MasterAgentList = () => {
 
   return (
     <div className="bg-white md:p-6 rounded">
-      <div className="flex justify-end items-center mb-4 gap-4 overflow-x-auto whitespace-nowrap">
-        <div className="flex gap-2 w-fit md:w-auto">
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Search"
-              value={searchTerm}
-              onChange={e => setSearchTerm(e.target.value)}
-              className="border pr-7 md:pr-10 pl-5 py-2 rounded font-dm font-[400] text-[16px] bg-[#D9D9D9] min-w-[150px]"
-            />
-            <span className="absolute inset-y-0 right-3 flex items-center text-gray-700">
-              <LuCrosshair size={17} />
-            </span>
-          </div>
-
-          {!viewOnlySubList && (
-            <button
-              className="bg-black text-white md:px-5 px-4 py-2 rounded font-dm md:font-[600] md:text-[16px] font-[600] text-[14px] whitespace-nowrap"
-              onClick={() => setAddModalOpen(true)}
-            >
-              Add Agent
-            </button>
-          )}
+      <div className="flex justify-between flex-wrap items-center mb-4 gap-3">
+        {/* Search Input */}
+        <div className="relative flex-1 min-w-[150px] max-w-sm">
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchTerm}
+            onChange={e => setSearchTerm(e.target.value)}
+            className="w-full border pr-8 pl-4 py-2 rounded font-dm text-[16px] bg-[#D9D9D9]"
+          />
+          <span className="absolute inset-y-0 right-3 flex items-center text-gray-700">
+            <LuCrosshair size={17} />
+          </span>
         </div>
+
+        {/* Add Agent Button */}
+        {!viewOnlySubList && (
+          <button
+            className="bg-black text-white px-5 py-2 rounded font-dm font-[600] text-[14px] sm:text-[16px] whitespace-nowrap"
+            onClick={() => setAddModalOpen(true)}
+          >
+            Add Agent
+          </button>
+        )}
       </div>
 
       {/* Table */}
@@ -261,42 +261,39 @@ const MasterAgentList = () => {
               </div>
             ))}
           </div>
-
-          {/* Pagination */}
-          <div className="flex justify-end mt-10 gap-2 items-center">
-            <button
-              onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
-              disabled={currentPage === 1}
-              className="px-2 py-1 text-[12px] rounded bg-gray-200 disabled:opacity-50"
-            >
-              <FaArrowLeft />
-            </button>
-
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
-              <button
-                key={page}
-                onClick={() => handlePageChange(page)}
-                className={`px-3 py-1 text-[12px] rounded ${
-                  page === currentPage
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-300'
-                }`}
-              >
-                {page}
-              </button>
-            ))}
-
-            <button
-              onClick={() =>
-                handlePageChange(Math.min(currentPage + 1, totalPages))
-              }
-              disabled={currentPage === totalPages}
-              className="px-2 py-1 text-[12px] rounded bg-gray-200 disabled:opacity-50"
-            >
-              <FaArrowRight />
-            </button>
-          </div>
         </div>
+      </div>
+      {/* Pagination */}
+      <div className="flex justify-end mt-10 gap-2 items-center">
+        <button
+          onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
+          disabled={currentPage === 1}
+          className="px-2 py-1 text-[12px] rounded bg-gray-200 disabled:opacity-50"
+        >
+          <FaArrowLeft />
+        </button>
+
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+          <button
+            key={page}
+            onClick={() => handlePageChange(page)}
+            className={`px-3 py-1 text-[12px] rounded ${
+              page === currentPage ? 'bg-blue-600 text-white' : 'bg-gray-300'
+            }`}
+          >
+            {page}
+          </button>
+        ))}
+
+        <button
+          onClick={() =>
+            handlePageChange(Math.min(currentPage + 1, totalPages))
+          }
+          disabled={currentPage === totalPages}
+          className="px-2 py-1 text-[12px] rounded bg-gray-200 disabled:opacity-50"
+        >
+          <FaArrowRight />
+        </button>
       </div>
 
       {/* Confirm Modals */}

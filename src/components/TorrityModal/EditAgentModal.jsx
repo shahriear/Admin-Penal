@@ -22,37 +22,47 @@ const EditAgentModal = ({ agent, onClose, onUpdate, onDelete }) => {
     <>
       <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-50 px-4">
         <div className="bg-white p-6 rounded-xl w-full max-w-md shadow-lg">
+          <h2 className="text-lg font-bold mb-4 text-center">
+            Edit Agent Profile
+          </h2>
+
           {[
             { label: 'Name', field: 'name' },
             { label: 'Password', field: 'password' },
             { label: 'Agent ID', field: 'id' },
           ].map(({ label, field }) => (
-            <div key={field} className="flex items-center mb-3 mt-4">
+            <div
+              key={field}
+              className="flex items-center gap-2 mb-3 mt-4 flex-wrap sm:flex-nowrap"
+            >
               <input
                 type="text"
                 name={field}
                 value={fields[field]}
                 onChange={handleChange}
                 placeholder={label}
-                className="flex-grow border p-2 rounded mr-2 bg-[#D9D9D9] border-gray-300"
+                className="flex-grow border p-2 rounded bg-[#D9D9D9] border-gray-300 text-sm"
               />
               <button
                 onClick={() => confirmUpdate(field)}
-                className="bg-black text-white px-3 py-1 rounded"
+                className="bg-black text-white px-4 py-2 rounded text-sm whitespace-nowrap"
               >
                 Confirm
               </button>
             </div>
           ))}
 
-          <div className="flex justify-between mt-5">
+          <div className="flex justify-between items-center flex-wrap gap-2 mt-6">
             <button
-              className="text-red-500 border border-red-500 px-4 py-2 rounded text-sm"
+              className="text-red-500 border border-red-500 px-4 py-2 rounded text-sm w-full sm:w-auto"
               onClick={() => setShowDeleteConfirm(true)}
             >
               Delete Agent
             </button>
-            <button className="text-gray-600 underline" onClick={onClose}>
+            <button
+              className="text-gray-600 underline text-sm w-full sm:w-auto"
+              onClick={onClose}
+            >
               Cancel
             </button>
           </div>

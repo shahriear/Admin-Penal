@@ -129,21 +129,24 @@ const MemberList = () => {
       )}
 
       {/* Top Bar */}
-      <div className="flex justify-end items-center mb-4 gap-4 overflow-x-auto whitespace-nowrap">
-        <div className="flex gap-2 w-fit md:w-auto">
+      <div className="w-full flex justify-end items-center mb-4 px-2">
+        <div className="flex flex-wrap gap-2 items-center">
+          {/* Search Input */}
           <div className="relative">
             <input
               type="text"
               placeholder="Search"
-              className="border pr-8 pl-5 py-2 rounded font-dm font-[400] text-[16px] bg-[#D9D9D9] min-w-[150px]"
+              className="border pr-  pl-5 py-2 rounded font-dm text-[14px] sm:text-[16px] bg-[#D9D9D9] min-w-[150px] sm:min-w-[200px]"
             />
             <span className="absolute inset-y-0 right-3 flex items-center text-gray-700">
               <LuCrosshair size={17} />
             </span>
           </div>
+
+          {/* Add User Button */}
           <button
             onClick={() => setAddUserOpen(true)}
-            className="bg-black text-white px-5 py-2 rounded font-dm font-[600] text-[14px] md:text-[16px] whitespace-nowrap"
+            className="bg-black text-white px-4 sm:px-5 py-2 rounded font-dm font-[600] text-[14px] sm:text-[16px] whitespace-nowrap"
           >
             Add User
           </button>
@@ -229,7 +232,7 @@ const MemberList = () => {
             key={page}
             onClick={() => setCurrentPage(page)}
             className={`px-3 py-1 text-[12px] rounded ${
-              page === currentPage ? 'bg-blue-600 text-white' : 'bg-gray-300'
+              page === currentPage ? ' bg-blue-600 text-white' : 'bg-gray-300'
             }`}
           >
             {page}

@@ -13,12 +13,14 @@ import DepositHistory from './AdminMenu//DepositHistory';
 import WithdrawHistory from './AdminMenu/WithdrawHistory';
 import Sidebar, { menuItems } from './AdminMenu/Dashboard/Sidebar';
 import AdminActionMenu from './AdminMenu/Dashboard/AdminActionMenu';
+import BalanceModal from './Withdraw Balance/BalanceModal';
 
 const Dashboard = () => {
   const [active, setActive] = useState('Dashboard');
   const [menuOpen, setMenuOpen] = useState(false);
 
   const activeItem = menuItems.find(item => item.title === active);
+  const [balanceModalOpen, setBalanceModalOpen] = useState(false);
 
   return (
     <div className="flex flex-col md:flex-row h-screen w-full">
@@ -64,6 +66,40 @@ const Dashboard = () => {
 
             {active === 'Dashboard' && (
               <>
+                {/* Available Balance */}
+
+                <div className="flex flex-wrap sm:flex-nowrap justify-between items-center gap-3 mb-4 p-4 bg-[#D9D9D9] rounded">
+                  <div className="text-sm sm:text-lg font-bold">
+                    Available Balance: $24930.00
+                  </div>
+                  <button
+                    onClick={() => setBalanceModalOpen(true)}
+                    className="bg-black text-white md:px-4 md:py-3 px-3 py-2 rounded text-sm sm:text-base whitespace-nowrap"
+                  >
+                    +/- Balance
+                  </button>
+                </div>
+
+                {/* <div className="flex flex-row justify-between items-center gap-3 mb-4 p-4 bg-[#D9D9D9] rounded">
+                  <div className="text-sm sm:text-lg font-bold">
+                    Available Balance: $24930.00
+                  </div>
+                  <button
+                    onClick={() => setBalanceModalOpen(true)}
+                    className="bg-black text-white md:px-4 md:py-3 px-3 py-2 rounded text-sm sm:text-base"
+                  >
+                    +/- Balance
+                  </button>
+                </div> */}
+
+                {/* baki dashboard content */}
+
+                {/* Modal Call */}
+                <BalanceModal
+                  isOpen={balanceModalOpen}
+                  onClose={() => setBalanceModalOpen(false)}
+                />
+
                 <StatsSection />
                 <SummaryBar />
                 <RecentActivities />

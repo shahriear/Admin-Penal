@@ -11,18 +11,11 @@ const EditMasterAgentModal = ({
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
 
-  // useEffect(() => {
-  //   if (agent) {
-  //     setName(agent.name || 'Enter your Name');
-  //     setPassword(agent.password || '');
-  //   }
-  // }, [agent]);
-
   return (
     <Dialog open={isOpen} onClose={onClose} className="relative z-50">
       <div className="fixed inset-0 bg-black/70" aria-hidden="true" />
       <div className="fixed inset-0 flex items-center justify-center p-4">
-        <Dialog.Panel className="w-fit px-10 max-w-md rounded bg-white p-6 space-y-4 pt-11 pb-11">
+        <Dialog.Panel className="w-fit px-10 max-w-md rounded bg-white p-6 space-y-4 pt-9 pb-9">
           {/* Name Field */}
           <div>
             <label className="block mb-1 font-medium">Name:</label>
@@ -30,7 +23,7 @@ const EditMasterAgentModal = ({
               <input
                 type="text"
                 value={name}
-                placeholder="Enter your Name"
+                placeholder="Name"
                 onChange={e => setName(e.target.value)}
                 className="border px-3 py-1 rounded w-full"
               />

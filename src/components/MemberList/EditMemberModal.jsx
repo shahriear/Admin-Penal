@@ -194,9 +194,9 @@ const EditMemberModal = ({ member, onClose, onUpdate, onDelete }) => {
   return (
     <>
       {/* Main Edit Modal */}
-      <div className="fixed inset-0 bg-black/70 bg-opacity-40 flex justify-center items-center z-40 px-4">
-        <div className="bg-white p-6 rounded-xl w-full max-w-md shadow-lg">
-          <h3 className="text-lg font-bold mb-4 text-center">
+      <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-40 px-4 sm:px-6">
+        <div className="bg-white w-full max-w-md rounded-xl shadow-lg p-4 sm:p-6 overflow-y-auto max-h-[90vh]">
+          <h3 className="text-center text-lg sm:text-xl font-bold mb-5">
             Edit Member Profile
           </h3>
 
@@ -206,34 +206,37 @@ const EditMemberModal = ({ member, onClose, onUpdate, onDelete }) => {
             { label: 'Number', field: 'account' },
             { label: 'Agent Number', field: 'agent' },
           ].map(({ label, field }) => (
-            <div key={field} className="flex items-center mb-3">
+            <div
+              key={field}
+              className="flex flex-wrap sm:flex-nowrap items-center gap-2 mb-4"
+            >
               <input
                 type="text"
                 name={field}
                 value={fields[field]}
                 onChange={handleChange}
                 placeholder={label}
-                className="flex-grow border p-2 rounded mr-2 bg-[#D9D9D9] border-gray-300"
+                className="flex-grow min-w-[150px] border px-3 py-2 rounded bg-[#D9D9D9] text-sm sm:text-base"
               />
               <button
                 onClick={() => confirmUpdate(field)}
-                className="bg-black font-dm font-[400] text-[17px] text-white px-3 py-1 rounded"
+                className="bg-black text-white px-4 py-2 rounded text-sm sm:text-base"
               >
                 Confirm
               </button>
             </div>
           ))}
 
-          <div className="flex justify-between gap-4 mt-5">
+          <div className="flex flex-col sm:flex-row justify-between gap-3 mt-6">
             <button
-              className="text-red-500 border border-red-500 px-4 py-2 rounded text-sm font-medium"
+              className="text-red-600 border border-red-600 px-4 py-2 rounded text-sm font-medium w-full sm:w-auto"
               onClick={() => setShowDeleteConfirm(true)}
             >
               Delete User
             </button>
 
             <button
-              className="text-gray-600 border border-gray-400 px-4 py-2 rounded text-sm font-medium"
+              className="text-gray-600 border border-gray-400 px-4 py-2 rounded text-sm font-medium w-full sm:w-auto"
               onClick={onClose}
             >
               Cancel
@@ -242,7 +245,7 @@ const EditMemberModal = ({ member, onClose, onUpdate, onDelete }) => {
         </div>
       </div>
 
-      {/* Separate Delete Confirmation Modal */}
+      {/* Delete Confirmation Modal */}
       <DeleteConfirmModal
         isOpen={showDeleteConfirm}
         onClose={() => setShowDeleteConfirm(false)}
