@@ -39,7 +39,7 @@ const AddTerritoryAgentModal = ({ isOpen, onClose, onConfirm }) => {
           <input
             type="text"
             placeholder="Territory Agent"
-            className="w-full border rounded p-2 text-[15px] font-dm bg-[#D9D9D9]"
+            className="w-full border rounded p-2 text-[16px] font-dm bg-[#D9D9D9]"
           />
           <select className="w-full border rounded p-2 text-[15px] font-dm bg-[#D9D9D9]">
             <option value="">Select Territory Area</option>
@@ -55,12 +55,12 @@ const AddTerritoryAgentModal = ({ isOpen, onClose, onConfirm }) => {
           <input
             type="text"
             placeholder="Enter Territory Agent ID (6 Digit)"
-            className="w-full border rounded p-2 text-[15px] font-dm bg-[#D9D9D9]"
+            className="w-full border rounded p-2 text-[16px] font-dm bg-[#D9D9D9]"
           />
           <input
             type="password"
             placeholder="Enter Password"
-            className="w-full border rounded p-2 text-[15px] font-dm bg-[#D9D9D9]"
+            className="w-full border rounded p-2 text-[16px] font-dm bg-[#D9D9D9]"
           />
         </div>
 

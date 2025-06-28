@@ -216,7 +216,7 @@ const EditMemberModal = ({ member, onClose, onUpdate, onDelete }) => {
                 value={fields[field]}
                 onChange={handleChange}
                 placeholder={label}
-                className="flex-grow min-w-[150px] border px-3 py-2 rounded bg-[#D9D9D9] font-dm text-[14px]"
+                className="flex-grow min-w-[150px] border px-3 py-2 rounded bg-[#D9D9D9] font-dm text-[16px]"
               />
               <button
                 onClick={() => confirmUpdate(field)}
