@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '../../ui/Button';
 import { cn } from '../../../lib/utils';
+import { Link } from 'react-router-dom';
 
 // import { cn } from '../../lib/utils';
 
@@ -76,18 +77,19 @@ const Sidebar = ({ active, setActive, menuOpen, setMenuOpen }) => {
         </div>
 
         {/* Log Out */}
-        <Button
+        <Link
+          to={'/'}
           className={cn(
             'md:mt-60 w-full py-3 rounded-md transition-colors duration-200  font-dm font-[600] text-[16px]',
             'bg-black text-white hover:bg-[#f0f0f0] hover:text-black',
-            'md:bg-black md:text-white md:hover:bg-white md:hover:text-black'
+            'md:bg-black md:text-white md:hover:bg-white md:hover:text-black text-center'
           )}
           onClick={() => {
             // Optional logout
           }}
         >
           Log Out
-        </Button>
+        </Link>
       </div>
 
       {menuOpen && (
