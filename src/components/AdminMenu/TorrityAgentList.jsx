@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { FaUserEdit, FaPenAlt, FaPenNib } from 'react-icons/fa';
+import {
+  FaUserEdit,
+  FaPenAlt,
+  FaPenNib,
+  FaArrowRight,
+  FaArrowLeft,
+} from 'react-icons/fa';
 import { LuCrosshair } from 'react-icons/lu';
 import EditAgentModal from '../TorrityModal/EditAgentModal';
 import AddTerritoryAgentModal from '../TorrityModal/AddTerritoryAgentModal';
@@ -156,7 +162,7 @@ const TorrityAgentList = () => {
               placeholder="Search"
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
-              className="border pr-2 md:pr-10 pl-2 py-2 rounded font-dm font-[400] text-[16px] bg-[#D9D9D9] min-w-[150px]"
+              className="border w-full md:pr-10 pl-2 py-2 rounded font-dm font-[400] text-[16px] bg-[#D9D9D9] min-w-[150px]"
             />
             <span className="absolute inset-y-0 right-3 flex items-center text-gray-700">
               <LuCrosshair size={17} />
@@ -227,7 +233,38 @@ const TorrityAgentList = () => {
         </div>
       </div>
 
-      <div className="flex justify-end mt-6 mb-4 pr-4">
+      {/* Pagination */}
+      <div className="flex justify-end mt-10 gap-2 items-center">
+        <button
+          onClick={() => setCurrentPage(Math.max(currentPage - 1, 1))}
+          disabled={currentPage === 1}
+          className="px-2 py-1 text-[12px] rounded bg-gray-200 disabled:opacity-50"
+        >
+          <FaArrowLeft />
+        </button>
+
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+          <button
+            key={page}
+            onClick={() => setCurrentPage(page)}
+            className={`px-3 py-1 text-[12px] rounded ${
+              page === currentPage ? 'bg-blue-600 text-white' : 'bg-gray-300'
+            }`}
+          >
+            {page}
+          </button>
+        ))}
+
+        <button
+          onClick={() => setCurrentPage(Math.min(currentPage + 1, totalPages))}
+          disabled={currentPage === totalPages}
+          className="px-2 py-1 text-[12px] rounded bg-gray-200 disabled:opacity-50"
+        >
+          <FaArrowRight />
+        </button>
+      </div>
+
+      {/* <div className="flex justify-end mt-6 mb-4 pr-4">
         <div className="flex items-center gap-2 font-semibold">
           <button
             onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
@@ -249,7 +286,7 @@ const TorrityAgentList = () => {
             →
           </button>
         </div>
-      </div>
+      </div> */}
 
       {editAgent && (
         <EditAgentModal

@@ -1,10 +1,3 @@
-// import React from 'react';
-
-// const WithdrawHistory = () => {
-//   return <div>WithdrawHistory hi</div>;
-// };
-
-// export default WithdrawHistory;
 import React from 'react';
 
 const withdrawData = [

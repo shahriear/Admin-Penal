@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import { FaUserEdit, FaPenNib } from 'react-icons/fa';
+import {
+  FaUserEdit,
+  FaPenNib,
+  FaArrowRight,
+  FaArrowLeft,
+} from 'react-icons/fa';
 import { LuCrosshair } from 'react-icons/lu';
 import LockConfirmModal from '../MemberList/LockConfirmModal';
 import UnblockConfirmModal from '../MemberList/UnblockConfirmModal';
@@ -210,7 +215,36 @@ const MemberList = () => {
       </div>
 
       {/* Pagination Controls */}
-      <div className="flex justify-end mt-6 mb-4 pr-4">
+      <div className="flex justify-end mt-10 gap-2 items-center">
+        <button
+          onClick={() => setCurrentPage(Math.max(currentPage - 1, 1))}
+          disabled={currentPage === 1}
+          className="px-2 py-1 text-[12px] rounded bg-gray-200 disabled:opacity-50"
+        >
+          <FaArrowLeft />
+        </button>
+
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+          <button
+            key={page}
+            onClick={() => setCurrentPage(page)}
+            className={`px-3 py-1 text-[12px] rounded ${
+              page === currentPage ? 'bg-blue-600 text-white' : 'bg-gray-300'
+            }`}
+          >
+            {page}
+          </button>
+        ))}
+
+        <button
+          onClick={() => setCurrentPage(Math.min(currentPage + 1, totalPages))}
+          disabled={currentPage === totalPages}
+          className="px-2 py-1 text-[12px] rounded bg-gray-200 disabled:opacity-50"
+        >
+          <FaArrowRight />
+        </button>
+      </div>
+      {/* <div className="flex justify-end mt-6 mb-4 pr-4">
         <div className="flex items-center gap-2 font-semibold">
           <button
             onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
@@ -232,7 +266,7 @@ const MemberList = () => {
             →
           </button>
         </div>
-      </div>
+      </div> */}
 
       {/* Modals */}
       <LockConfirmModal

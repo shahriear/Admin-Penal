@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 const depositData = [
   {
@@ -7,11 +8,26 @@ const depositData = [
     balance: '$1200.00',
     status: 'Done',
   },
+
+  // চাইলে আরো data এখানে add করো
 ];
 
 const DepositTable = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8;
+
+  const totalPages = Math.ceil(depositData.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentData = depositData.slice(startIndex, startIndex + itemsPerPage);
+
+  const handlePageChange = newPage => {
+    if (newPage >= 1 && newPage <= totalPages) {
+      setCurrentPage(newPage);
+    }
+  };
+
   return (
-    <div className="w-full ">
+    <div className="w-full">
       <div className="w-full overflow-x-auto">
         <table className="w-full table-fixed border-separate border-spacing-y-2 text-sm">
           <thead>
@@ -31,8 +47,7 @@ const DepositTable = () => {
             </tr>
           </thead>
           <tbody>
-            {/* Data Row */}
-            {depositData.map((item, index) => (
+            {currentData.map((item, index) => (
               <tr
                 key={index}
                 className="bg-[#D9D9D95E] border border-transparent font-dm md:font-[400] md:text-[14px] font-[400] text-[10px]"
@@ -48,8 +63,7 @@ const DepositTable = () => {
               </tr>
             ))}
 
-            {/* Empty Rows */}
-            {[...Array(11)].map((_, i) => (
+            {[...Array(itemsPerPage - currentData.length)].map((_, i) => (
               <tr
                 key={`empty-${i}`}
                 className="bg-[#D9D9D95E] h-10 border border-transparent"
@@ -60,6 +74,39 @@ const DepositTable = () => {
           </tbody>
         </table>
       </div>
+
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="flex justify-end mt-4 gap-2 items-center text-sm">
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+            className="px-2 py-1 bg-gray-300 rounded disabled:opacity-50"
+          >
+            <FaArrowLeft />
+          </button>
+
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+            <button
+              key={page}
+              onClick={() => handlePageChange(page)}
+              className={`px-3 py-1 rounded ${
+                page === currentPage ? 'bg-blue-600 text-white' : 'bg-gray-300'
+              }`}
+            >
+              {page}
+            </button>
+          ))}
+
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className="px-2 py-1 bg-gray-300 rounded disabled:opacity-50"
+          >
+            <FaArrowRight />
+          </button>
+        </div>
+      )}
     </div>
   );
 };
