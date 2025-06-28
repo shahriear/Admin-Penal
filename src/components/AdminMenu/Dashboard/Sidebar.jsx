@@ -78,7 +78,7 @@ const Sidebar = ({ active, setActive, menuOpen, setMenuOpen }) => {
 
         {/* Log Out */}
         <Link
-          to={'/'}
+          to={'/login'}
           className={cn(
             'md:mt-60 w-full py-3 rounded-md transition-colors duration-200  font-dm font-[600] text-[16px]',
             'bg-black text-white hover:bg-[#f0f0f0] hover:text-black',
