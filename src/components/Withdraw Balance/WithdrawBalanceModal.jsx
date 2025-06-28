@@ -15,14 +15,14 @@ const WithdrawBalanceModal = ({ isOpen, onClose }) => {
           <input
             type="text"
             placeholder="Enter Amount *"
-            className="w-full border rounded px-3 py-2 bg-white font[400] md:text-[16px] text-[13px]"
+            className="w-full border rounded px-3 py-2 bg-white font[400] md:text-[16px] text-[16px]"
             value={amount}
             onChange={e => setAmount(e.target.value)}
           />
           <input
             type="text"
             placeholder="Enter USDT(TRC-20) Wallet Address *"
-            className="w-full border rounded px-3 py-2 bg-white font[400] md:text-[16px] text-[13px]"
+            className="w-full border rounded px-3 py-2 bg-white font[400] md:text-[16px] text-[16px]"
             value={wallet}
             onChange={e => setWallet(e.target.value)}
           />
