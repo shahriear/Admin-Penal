@@ -21,7 +21,7 @@
 // export default App;
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/page/Login';
-import ProtectedRoute from './components/page/ProtectedRoute';
+// import ProtectedRoute from './components/page/ProtectedRoute';
 import Dashboard from './components/Dashboard';
 import { ToastContainer } from 'react-toastify';
 import ForgotPassword from './components/page/ForgotPassword';
@@ -33,14 +33,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
 
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
       <ToastContainer
         position="top-right"
@@ -56,3 +49,8 @@ function App() {
 }
 
 export default App;
+{
+  /* <ProtectedRoute>
+  <Dashboard />
+</ProtectedRoute>; */
+}
