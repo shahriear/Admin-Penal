@@ -128,6 +128,13 @@ const TorrityAgentList = () => {
   const [blockedAgent, setBlockedAgent] = useState(null);
   const [confirmType, setConfirmType] = useState('');
 
+  const [editBalanceId, setEditBalanceId] = useState(null);
+  const handleFieldUpdate = (id, field, value) => {
+    setMembers(prev =>
+      prev.map(m => (m.id === id ? { ...m, [field]: value } : m))
+    );
+  };
+
   const handleAddAgent = data => {
     console.log('New Territory Agent:', data);
     // Push or API call
@@ -194,9 +201,28 @@ const TorrityAgentList = () => {
               >
                 <div>{m.account}</div>
                 <div>{m.password}</div>
-                <div className="flex items-center justify-center gap-1">
-                  {m.balance}
-                  <FaPenNib className="text-gray-600 text-[9px] md:text-sm cursor-pointer ml-1" />
+                <div
+                  className="flex items-center justify-center gap-1 cursor-pointer"
+                  onClick={() => setEditBalanceId(m.id)}
+                >
+                  {editBalanceId === m.id ? (
+                    <input
+                      type="text"
+                      value={m.balance.replace('$', '')}
+                      onChange={e =>
+                        handleFieldUpdate(m.id, 'balance', `$${e.target.value}`)
+                      }
+                      onBlur={() => setEditBalanceId(null)}
+                      onKeyDown={e => {
+                        if (e.key === 'Enter') setEditBalanceId(null);
+                      }}
+                      className="border w-[70px] text-center px-1 text-[11px] md:text-[14px]"
+                      autoFocus
+                    />
+                  ) : (
+                    <span>{m.balance}</span>
+                  )}
+                  <FaPenNib className="text-gray-600 md:text-[13px] text-[12px] cursor-pointer ml-1" />
                 </div>
                 <div>
                   <span

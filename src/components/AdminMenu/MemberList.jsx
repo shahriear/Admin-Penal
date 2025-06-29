@@ -49,6 +49,8 @@ const MemberList = () => {
   const [unblockModalOpen, setUnblockModalOpen] = useState(false);
   const [editMember, setEditMember] = useState(null);
 
+  const [editBalanceId, setEditBalanceId] = useState(null);
+
   const handleBlock = member => {
     setSelectedMember(member);
     setLockModalOpen(true);
@@ -173,10 +175,30 @@ const MemberList = () => {
               >
                 <div>{m.account}</div>
                 <div>{m.password}</div>
-                <div className="flex items-center justify-center gap-1">
-                  {m.balance}
-                  <FaPenNib className="text-gray-600 text-[11px] md:text-sm cursor-pointer ml-1" />
+                <div
+                  className="flex items-center justify-center gap-1 cursor-pointer"
+                  onClick={() => setEditBalanceId(m.id)}
+                >
+                  {editBalanceId === m.id ? (
+                    <input
+                      type="text"
+                      value={m.balance.replace('$', '')}
+                      onChange={e =>
+                        handleFieldUpdate(m.id, 'balance', `$${e.target.value}`)
+                      }
+                      onBlur={() => setEditBalanceId(null)}
+                      onKeyDown={e => {
+                        if (e.key === 'Enter') setEditBalanceId(null);
+                      }}
+                      className="border w-[70px] text-center px-1 text-[11px] md:text-[14px]"
+                      autoFocus
+                    />
+                  ) : (
+                    <span>{m.balance}</span>
+                  )}
+                  <FaPenNib className="text-gray-600 md:text-[13px] text-[12px] cursor-pointer ml-1" />
                 </div>
+
                 <div>
                   <span
                     className={`px-2 py-0.5 rounded text-white text-[10px] md:text-xs ${
