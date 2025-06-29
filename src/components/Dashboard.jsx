@@ -11,9 +11,10 @@ import MasterAgent from './AdminMenu/MasterAgent';
 import DepositWithdraw from './AdminMenu/DepositWithdraw';
 import DepositHistory from './AdminMenu//DepositHistory';
 import WithdrawHistory from './AdminMenu/WithdrawHistory';
-import Sidebar, { menuItems } from './AdminMenu/Dashboard/Sidebar';
+import Sidebar from './AdminMenu/Dashboard/Sidebar';
 import AdminActionMenu from './AdminMenu/Dashboard/AdminActionMenu';
 import BalanceModal from './Withdraw Balance/BalanceModal';
+import { menuItems } from '../constants/menuItems';
 
 const Dashboard = () => {
   const [active, setActive] = useState('Dashboard');
