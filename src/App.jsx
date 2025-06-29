@@ -24,6 +24,7 @@ import Login from './components/page/Login';
 import ProtectedRoute from './components/page/ProtectedRoute';
 import Dashboard from './components/Dashboard';
 import { ToastContainer } from 'react-toastify';
+import ForgotPassword from './components/page/ForgotPassword';
 // import Login from './pages/Login';
 // import Dashboard from './pages/Dashboard';
 // import ProtectedRoute from './components/ProtectedRoute';
@@ -33,6 +34,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
 
         {/* ✅ Route এর ভিতরে ProtectedRoute কে element হিসেবে wrap করো */}
         <Route

@@ -115,7 +115,8 @@
 // export default Login;
 
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const [credentials, setCredentials] = useState({ id: '', password: '' });
@@ -135,47 +136,83 @@ const Login = () => {
     setCredentials(prev => ({ ...prev, [name]: value }));
   };
 
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+
+  //   if (rememberMe) {
+  //     localStorage.setItem('user_id', credentials.id);
+  //   } else {
+  //     localStorage.removeItem('user_id');
+  //   }
+
+  //   if (credentials.id && credentials.password) {
+  //     localStorage.setItem('loggedIn', 'true');
+  //     navigate('/dashboard');
+  //     window.scrollTo(0, 0);
+  //   } else {
+  //     alert('Please enter both ID and password.');
+  //   }
+  // };
+
   const handleSubmit = e => {
     e.preventDefault();
 
-    // ✅ Save ID if Remember Me is checked
+    // শর্ত: ID ও Password ফাঁকা না হলে
+    if (credentials.id.trim() === '' || credentials.password.trim() === '') {
+      toast.warn('Please fill in all fields', {
+        position: 'top-center',
+        autoClose: 2000,
+        theme: 'light',
+      });
+      return;
+    }
+
+    // Remember Me Check
     if (rememberMe) {
       localStorage.setItem('user_id', credentials.id);
     } else {
       localStorage.removeItem('user_id');
     }
 
-    // ✅ Simulate login success (in real app, validate here)
-    if (credentials.id && credentials.password) {
-      localStorage.setItem('loggedIn', 'true'); // 👈 Main part added
+    // ✅ Success Toast
+    toast.success('Login successful!', {
+      position: 'top-center',
+      autoClose: 2000,
+      theme: 'colored',
+    });
+
+    // 2 second পর redirect
+    setTimeout(() => {
       navigate('/dashboard');
-    } else {
-      alert('Please enter both ID and password.');
-    }
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }, 1000);
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-600 px-4 py-6">
-      <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg w-full max-w-sm sm:max-w-md md:max-w-lg">
+    <div className="flex items-center justify-center min-h-screen bg-gray-600 px-4">
+      <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
         {/* Logo/Image */}
-        <div className="flex justify-center mb-6 pt-28">
+        <div className="flex justify-center mb-6">
           <img
             src="/image/png-boom.png"
             alt="boom"
-            className="w-fit h-fit rounded-full object-cover"
+            className="  rounded-full object-cover"
           />
         </div>
 
         {/* Welcome Text */}
-        <p className="text-center text-gray-700 text-sm sm:text-base mb-4 font-dm">
+        <p className="text-center text-gray-700 text-base sm:text-lg mb-6 font-dm font-medium">
           Welcome Back! Please enter your details
         </p>
 
         {/* Login Form */}
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-5">
           {/* ID Field */}
           <div>
-            <label className="block mb-1 font-dm font-[500] text-[16px]">
+            <label className="block mb-1 font-dm font-semibold text-base">
               Enter ID
             </label>
             <input
@@ -183,15 +220,14 @@ const Login = () => {
               name="id"
               value={credentials.id}
               onChange={handleChange}
-              required
-              className="w-full px-4 py-2 border rounded bg-[#F1F1F1] font-dm font-[400] text-[16px]"
               placeholder="Enter your ID"
+              className="w-full px-4 py-3 border rounded bg-[#F1F1F1] font-dm font-normal text-base focus:outline-none focus:ring-2 focus:ring-black"
             />
           </div>
 
           {/* Password Field */}
           <div>
-            <label className="block mb-1 font-dm font-[500] text-[16px]">
+            <label className="block mb-1 font-dm font-semibold text-base">
               Password
             </label>
             <input
@@ -199,15 +235,14 @@ const Login = () => {
               name="password"
               value={credentials.password}
               onChange={handleChange}
-              required
-              className="w-full px-4 py-2 border rounded bg-[#F1F1F1] font-dm font-[400] text-[16px]"
               placeholder="Enter your password"
+              className="w-full px-4 py-3 border rounded bg-[#F1F1F1] font-dm font-normal text-base focus:outline-none focus:ring-2 focus:ring-black"
             />
           </div>
 
           {/* Remember Me & Forgot */}
-          <div className="flex items-center justify-between text-sm">
-            <label className="flex items-center">
+          <div className="flex items-center justify-between text-sm sm:text-base">
+            <label className="flex items-center select-none">
               <input
                 type="checkbox"
                 className="mr-2"
@@ -216,18 +251,19 @@ const Login = () => {
               />
               Remember me
             </label>
-            <a
-              href="/forgot-password"
-              className="text-red-600 hover:underline font-dm font-[400] text-[14px]"
+
+            {/* এখানে a tag এর জায়গায় Link দিয়ে replace করো */}
+            <Link
+              to="/forgot-password"
+              className="text-red-600 hover:underline font-dm font-normal"
             >
               Forgot Password?
-            </a>
+            </Link>
           </div>
-
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition font-dm font-[500] text-[16px] mb-28 mt-6"
+            className="w-full bg-black text-white py-3 rounded hover:bg-gray-800 transition font-dm font-semibold text-base"
           >
             Sign In
           </button>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const ForgotPassword = () => {
   const [id, setId] = useState('');
@@ -7,13 +8,34 @@ const ForgotPassword = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // এখানে ID যাচাই করে পরবর্তী ধাপে যাবে
-    alert(`Password reset link sent to ID: ${id}`);
-    navigate('/login');
+
+    if (id.trim() === '') {
+      // 🔴 Warning Toast
+      toast.warn('Please enter your ID', {
+        position: 'top-center',
+        autoClose: 2000,
+        hideProgressBar: false,
+        theme: 'light',
+      });
+      return;
+    }
+
+    // ✅ Success Toast
+    toast.success(`Password reset link sent to ID: ${id}`, {
+      position: 'top-center',
+      autoClose: 2000,
+      hideProgressBar: false,
+      theme: 'dark',
+    });
+
+    // Wait 2 seconds before redirecting
+    setTimeout(() => {
+      navigate('/');
+    }, 2000);
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
+    <div className="flex items-center justify-center min-h-screen bg-gray-600 px-4">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-sm">
         <h2 className="text-xl font-bold mb-6 text-center">Forgot Password</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -26,7 +48,6 @@ const ForgotPassword = () => {
               name="id"
               value={id}
               onChange={e => setId(e.target.value)}
-              required
               className="w-full px-4 py-2 border rounded bg-[#F1F1F1]"
               placeholder="Enter your ID"
             />
@@ -40,13 +61,14 @@ const ForgotPassword = () => {
           </button>
 
           <div className="text-start mt-4">
-            <button
+            <Link
+              to={'/'}
               type="button"
               onClick={() => navigate('/login')}
               className="text-red-600 font-dm underline text-sm hover:text-blue-800"
             >
               Back to Login
-            </button>
+            </Link>
           </div>
         </form>
       </div>
