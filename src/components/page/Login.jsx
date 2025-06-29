@@ -195,7 +195,7 @@ const Login = () => {
     <div className="flex items-center justify-center min-h-screen bg-gray-600 px-4">
       <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
         {/* Logo/Image */}
-        <div className="flex justify-center mb-6">
+        <div className="flex justify-center mb-">
           <img
             src="/image/png-boom.png"
             alt="boom"
@@ -204,7 +204,7 @@ const Login = () => {
         </div>
 
         {/* Welcome Text */}
-        <p className="text-center text-gray-700 text-base sm:text-lg mb-6 font-dm font-medium">
+        <p className="text-center text-gray-700 text-base sm:text-lg mb-10 font-dm font-[400] text-[14px]">
           Welcome Back! Please enter your details
         </p>
 

@@ -25,9 +25,6 @@ import ProtectedRoute from './components/page/ProtectedRoute';
 import Dashboard from './components/Dashboard';
 import { ToastContainer } from 'react-toastify';
 import ForgotPassword from './components/page/ForgotPassword';
-// import Login from './pages/Login';
-// import Dashboard from './pages/Dashboard';
-// import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   return (
@@ -36,7 +33,6 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
 
-        {/* ✅ Route এর ভিতরে ProtectedRoute কে element হিসেবে wrap করো */}
         <Route
           path="/dashboard"
           element={
@@ -60,29 +56,3 @@ function App() {
 }
 
 export default App;
-
-// export default App;
-// import { ToastContainer } from 'react-toastify';
-// import Dashboard from './components/Dashboard';
-
-// const App = () => {
-//   return (
-//     <Router>
-//       <Routes>
-//         <Route path="/login" element={<Login />} />
-//         <Route path="/dashboard" element={<Dashboard />} />
-//         <ToastContainer
-//           position="top-right"
-//           autoClose={3000}
-//           closeOnClick
-//           pauseOnHover
-//           draggable
-//           toastClassName="!rounded-md !shadow-md !text-[11px] md:!text-[15px] !p-3 !pr-4 !w-[60%] md:!w-[320px] !ml-auto !mr-2"
-//           bodyClassName="font-dm text-[13px] md:text-[20px]"
-//         />
-//       </Routes>
-//     </Router>
-//   );
-// };
-
-// export default App;
