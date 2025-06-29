@@ -2,7 +2,7 @@ import React from 'react';
 
 const SummaryBar = () => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 text-center bg-white p-4 md:mt-12 md:mb-11 mt-5 mb-2.5 rounded">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 text-center bg-white p-4 md:mt-8 md:mb-11 mt-5 mb-2.5 rounded">
       {['Territory Agent', 'Master Agent', 'Agent', 'User'].map(type => (
         <div
           key={type}

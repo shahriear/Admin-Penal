@@ -69,7 +69,7 @@ const Dashboard = () => {
               <>
                 {/* Available Balance */}
 
-                <div className="flex flex-wrap sm:flex-nowrap justify-between items-center gap-3 mb-4 p-4 bg-[#D9D9D9] rounded">
+                {/* <div className="flex flex-wrap sm:flex-nowrap justify-between items-center gap-3 mb-4 p-4 bg-[#D9D9D9] rounded">
                   <div className="font-dm font[600] md:text-[18px] text-[17px]">
                     Available Balance:
                     <span className="font-[600] md:text-[18px] text-[17px]">
@@ -82,7 +82,7 @@ const Dashboard = () => {
                   >
                     +/- Balance
                   </button>
-                </div>
+                </div> */}
 
                 {/* Modal Call */}
                 <BalanceModal
