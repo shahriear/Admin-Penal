@@ -136,60 +136,60 @@ const Login = () => {
     setCredentials(prev => ({ ...prev, [name]: value }));
   };
 
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-
-  //   if (rememberMe) {
-  //     localStorage.setItem('user_id', credentials.id);
-  //   } else {
-  //     localStorage.removeItem('user_id');
-  //   }
-
-  //   if (credentials.id && credentials.password) {
-  //     localStorage.setItem('loggedIn', 'true');
-  //     navigate('/dashboard');
-  //     window.scrollTo(0, 0);
-  //   } else {
-  //     alert('Please enter both ID and password.');
-  //   }
-  // };
-
   const handleSubmit = e => {
     e.preventDefault();
 
-    // শর্ত: ID ও Password ফাঁকা না হলে
-    if (credentials.id.trim() === '' || credentials.password.trim() === '') {
-      toast.warn('Please fill in all fields', {
-        position: 'top-center',
-        autoClose: 2000,
-        theme: 'light',
-      });
-      return;
-    }
-
-    // Remember Me Check
     if (rememberMe) {
       localStorage.setItem('user_id', credentials.id);
     } else {
       localStorage.removeItem('user_id');
     }
 
-    // ✅ Success Toast
-    toast.success('Login successful!', {
-      position: 'top-center',
-      autoClose: 2000,
-      theme: 'colored',
-    });
-
-    // 2 second পর redirect
-    setTimeout(() => {
+    if (credentials.id && credentials.password) {
+      localStorage.setItem('loggedIn', 'true');
       navigate('/dashboard');
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
-    }, 1000);
+      window.scrollTo(0, 0);
+    } else {
+      alert('Please enter both ID and password.');
+    }
   };
+
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+
+  //   // শর্ত: ID ও Password ফাঁকা না হলে
+  //   if (credentials.id.trim() === '' || credentials.password.trim() === '') {
+  //     toast.warn('Please fill in all fields', {
+  //       position: 'top-center',
+  //       autoClose: 2000,
+  //       theme: 'light',
+  //     });
+  //     return;
+  //   }
+
+  //   // Remember Me Check
+  //   if (rememberMe) {
+  //     localStorage.setItem('user_id', credentials.id);
+  //   } else {
+  //     localStorage.removeItem('user_id');
+  //   }
+
+  //   // ✅ Success Toast
+  //   toast.success('Login successful!', {
+  //     position: 'top-center',
+  //     autoClose: 2000,
+  //     theme: 'colored',
+  //   });
+
+  //   // 2 second পর redirect
+  //   setTimeout(() => {
+  //     navigate('/dashboard');
+  //     window.scrollTo({
+  //       top: 0,
+  //       behavior: 'smooth',
+  //     });
+  //   }, 1000);
+  // };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-600 px-4">
