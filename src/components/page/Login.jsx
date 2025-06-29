@@ -146,7 +146,7 @@ const Login = () => {
     }
 
     if (credentials.id && credentials.password) {
-      localStorage.setItem('loggedIn', 'true');
+      localStorage.setItem('loggedIn', JSON.stringify(true)); // true → string
       navigate('/dashboard');
       window.scrollTo(0, 0);
     } else {
