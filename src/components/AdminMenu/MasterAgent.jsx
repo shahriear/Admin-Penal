@@ -578,7 +578,7 @@ const MasterAgentList = () => {
                       onKeyDown={e => {
                         if (e.key === 'Enter') setEditBalanceId(null);
                       }}
-                      className="border w-[70px] text-center px-1 text-[11px] md:text-[14px]"
+                      className="border w-[70px] text-center px-1 text-[16px] md:text-[14px]"
                       autoFocus
                     />
                   ) : (
