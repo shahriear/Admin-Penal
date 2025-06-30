@@ -1,4 +1,3 @@
-// BalanceModal.jsx
 import React, { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import AddBalanceModal from './AddBalanceModal';

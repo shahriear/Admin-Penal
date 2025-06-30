@@ -14,7 +14,7 @@ const AddUserModal = ({ isOpen, onClose, onConfirm, onSuccess }) => {
   const handleChange = e => {
     const { name, value } = e.target;
     setForm(prev => ({ ...prev, [name]: value }));
-    setErrors(prev => ({ ...prev, [name]: '' })); // clear error on input
+    setErrors(prev => ({ ...prev, [name]: '' }));
   };
 
   const validate = () => {
@@ -31,7 +31,7 @@ const AddUserModal = ({ isOpen, onClose, onConfirm, onSuccess }) => {
   const handleSubmit = () => {
     if (!validate()) return;
 
-    onConfirm(form); // pass to parent
+    onConfirm(form);
     setForm({ agent: '', number: '', password: '', amount: '' });
     setErrors({});
     onClose();
@@ -44,14 +44,12 @@ const AddUserModal = ({ isOpen, onClose, onConfirm, onSuccess }) => {
   return (
     <div className="fixed inset-0 bg-black/80 flex justify-center items-center z-50 p-4">
       <div className="bg-white rounded-lg p-6 w-full max-w-md relative">
-        {/* Toast */}
         {toast && (
           <div className="absolute top-2 left-1/2 -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded shadow-md text-sm">
             {toast}
           </div>
         )}
 
-        {/* Agent Number */}
         <div className="mb-3 mt-2">
           <label className="block font-dm font-[400] md:text-[16px] text-[14px] mb-1">
             Enter Agent Number *
@@ -70,7 +68,6 @@ const AddUserModal = ({ isOpen, onClose, onConfirm, onSuccess }) => {
           )}
         </div>
 
-        {/* Mobile Number */}
         <div className="mb-3">
           <label className="block font-dm font-[400] md:text-[16px] text-[14px] mb-1">
             Enter User Mobile Number *
@@ -88,7 +85,6 @@ const AddUserModal = ({ isOpen, onClose, onConfirm, onSuccess }) => {
           )}
         </div>
 
-        {/* Password */}
         <div className="mb-3">
           <label className="block font-dm font-[400] md:text-[16px] text-[14px] mb-1">
             Enter Password *
@@ -106,7 +102,6 @@ const AddUserModal = ({ isOpen, onClose, onConfirm, onSuccess }) => {
           )}
         </div>
 
-        {/* Optional Amount */}
         <div className="mb-4">
           <label className="block  font-dm font-[400] md:text-[16px] text-[14px] mb-1">
             Enter Amount (Optional)

@@ -137,12 +137,11 @@ const TorrityAgentList = () => {
 
   const handleAddAgent = data => {
     console.log('New Territory Agent:', data);
-    // Push or API call
   };
 
   const handleBlockToggle = (agent, type) => {
     setBlockedAgent(agent);
-    setConfirmType(type); // block / unblock
+    setConfirmType(type);
   };
 
   const confirmBlockToggle = () => {
@@ -238,7 +237,7 @@ const TorrityAgentList = () => {
                     className="min-w-[90px] bg-blue-500 text-white px-2 py-1 rounded flex items-center justify-center"
                     onClick={() => setEditAgent(m)}
                   >
-                    <FaUserEdit className="mr-1 md:text-base text-[10px]" />{' '}
+                    <FaUserEdit className="mr-1 md:text-base text-[10px]" />
                     Profile Edit
                   </button>
                   <button
@@ -289,30 +288,6 @@ const TorrityAgentList = () => {
           <FaArrowRight />
         </button>
       </div>
-
-      {/* <div className="flex justify-end mt-6 mb-4 pr-4">
-        <div className="flex items-center gap-2 font-semibold">
-          <button
-            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-            disabled={currentPage === 1}
-            className="px-3 py-2 text-lg"
-          >
-            ←
-          </button>
-          <span className="text-sm text-gray-700">
-            {currentPage.toString().padStart(2, '0')}
-          </span>
-          <button
-            onClick={() =>
-              setCurrentPage(prev => Math.min(prev + 1, totalPages))
-            }
-            disabled={currentPage === totalPages}
-            className="px-3 py-2 text-lg"
-          >
-            →
-          </button>
-        </div>
-      </div> */}
 
       {editAgent && (
         <EditAgentModal

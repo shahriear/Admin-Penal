@@ -20,13 +20,10 @@ const EditMasterAgentModal = ({
 
   return (
     <Dialog open={isOpen} onClose={onClose} className="relative z-50">
-      {/* Overlay */}
       <div className="fixed inset-0 bg-black/60" aria-hidden="true" />
 
-      {/* Modal Container */}
       <div className="fixed inset-0 flex items-center justify-center p-4">
         <Dialog.Panel className="w-full max-w-md bg-white rounded-xl shadow-xl p-6 relative space-y-6">
-          {/* Modal Title & Close */}
           <div className="flex justify-between items-center mb-2">
             <h3 className="text-lg font-semibold text-gray-800">
               Edit Master Agent
@@ -39,7 +36,6 @@ const EditMasterAgentModal = ({
             </button>
           </div>
 
-          {/* Name Field */}
           <div>
             <label className="block mb-1 font-medium text-gray-700">
               Name:
@@ -61,7 +57,6 @@ const EditMasterAgentModal = ({
             </div>
           </div>
 
-          {/* Password Field */}
           <div>
             <label className="block mb-1 font-medium text-gray-700">
               Password:
@@ -83,7 +78,6 @@ const EditMasterAgentModal = ({
             </div>
           </div>
 
-          {/* Delete Button */}
           <div className="pt-2">
             <button
               onClick={() => onDelete(agent)}

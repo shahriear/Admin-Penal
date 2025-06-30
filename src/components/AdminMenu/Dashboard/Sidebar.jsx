@@ -4,39 +4,6 @@ import { cn } from '../../../lib/utils';
 import { menuItems } from '../../../constants/menuItems';
 import { Link } from 'react-router-dom';
 
-// import { cn } from '../../lib/utils';
-
-// const menuItems = [
-//   {
-//     title: 'Dashboard',
-//     description: "Here's today’s report & performances",
-//   },
-//   {
-//     title: 'Member List',
-//     description: 'Here is your all User',
-//   },
-//   {
-//     title: 'Territory Agent List',
-//     description: 'Here is your all Territory Agent',
-//   },
-//   {
-//     title: 'Master Agent List',
-//     description: 'Here is your all Master Agent',
-//   },
-//   {
-//     title: 'Deposit & Withdraw',
-//     description: 'Here you deposit & withdraw to master agent ,agent & user',
-//   },
-//   {
-//     title: 'Deposit History',
-//     description: 'Here is all Deposit History ',
-//   },
-//   {
-//     title: 'Withdraw History',
-//     description: 'Here is all withdraw history',
-//   },
-// ];
-
 const Sidebar = ({ active, setActive, menuOpen, setMenuOpen }) => {
   return (
     <>
@@ -78,8 +45,7 @@ const Sidebar = ({ active, setActive, menuOpen, setMenuOpen }) => {
         </div>
 
         {/* Log Out */}
-        <Link
-          to={'/'}
+        <Button
           className={cn(
             'md:mt-60 w-full py-3 rounded-md transition-colors duration-200  font-dm font-[600] text-[16px] text-center',
             'bg-black text-white hover:bg-[#f0f0f0] hover:text-black',
@@ -90,7 +56,7 @@ const Sidebar = ({ active, setActive, menuOpen, setMenuOpen }) => {
           }}
         >
           Log Out
-        </Link>
+        </Button>
       </div>
 
       {menuOpen && (
@@ -102,7 +68,5 @@ const Sidebar = ({ active, setActive, menuOpen, setMenuOpen }) => {
     </>
   );
 };
-
-// export { menuItems };
 
 export default Sidebar;

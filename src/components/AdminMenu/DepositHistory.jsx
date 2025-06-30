@@ -8,8 +8,6 @@ const depositData = [
     balance: '$1200.00',
     status: 'Done',
   },
-
-  // চাইলে আরো data এখানে add করো
 ];
 
 const DepositTable = () => {

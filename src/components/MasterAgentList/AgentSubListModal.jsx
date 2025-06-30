@@ -43,16 +43,6 @@ const AgentSubListModal = ({
       <div className="fixed inset-0 bg-black/40" aria-hidden="true" />
       <div className="fixed inset-0 flex items-center justify-center p-4">
         <Dialog.Panel className="w-full max-w-4xl rounded bg-white p-4 shadow-lg">
-          {/* <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-semibold">Agent Sub List</h2>
-            <button
-              onClick={onClose}
-              className="text-red-500 font-bold text-xl px-2"
-            >
-              ×
-            </button>
-          </div> */}
-
           {/* Search */}
           <div className="mb-8 mt-4 flex justify-end">
             <div className="relative max-w-sm ">

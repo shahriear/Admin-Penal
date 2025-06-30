@@ -24,7 +24,6 @@ const AddTerritoryAgentModal = ({ isOpen, onClose, onConfirm }) => {
       onClick={handleBackdropClick}
     >
       <div className="bg-white w-[90%] max-w-md rounded-lg p-5 relative">
-        {/* Close Button */}
         <button
           onClick={onClose}
           className="absolute top-2 right-3 text-xl font-bold text-gray-600"
@@ -32,7 +31,6 @@ const AddTerritoryAgentModal = ({ isOpen, onClose, onConfirm }) => {
           &times;
         </button>
 
-        {/* Modal Content */}
         <h2 className="text-lg font-dm font-[600] mb-4">Add Territory Agent</h2>
 
         <div className="space-y-3">

@@ -123,7 +123,6 @@ const MemberList = () => {
 
   return (
     <div className="bg-white rounded pb-10">
-      {/* Toast Message */}
       {toastMsg && (
         <div className="fixed top-5 left-1/2 transform -translate-x-1/2 w-[90%] max-w-xs bg-green-600 text-white text-sm text-center px-4 py-2 rounded shadow-lg z-[9999] animate-slideIn">
           {toastMsg}
@@ -133,7 +132,7 @@ const MemberList = () => {
       {/* Top Bar */}
       <div className="w-full flex justify-end items-center mb-4 px-2">
         <div className="flex flex-wrap gap-2 items-center">
-          {/* Search Input */}
+          {/* Search  */}
           <div className="relative">
             <input
               type="text"
@@ -269,29 +268,6 @@ const MemberList = () => {
           <FaArrowRight />
         </button>
       </div>
-      {/* <div className="flex justify-end mt-6 mb-4 pr-4">
-        <div className="flex items-center gap-2 font-semibold">
-          <button
-            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-            disabled={currentPage === 1}
-            className="px-3 py-2  text-lg "
-          >
-            ←
-          </button>
-
-          <span className="text-sm text-gray-700">0{currentPage}</span>
-
-          <button
-            onClick={() =>
-              setCurrentPage(prev => Math.min(prev + 1, totalPages))
-            }
-            disabled={currentPage === totalPages}
-            className="px-3 py-2 text-lg"
-          >
-            →
-          </button>
-        </div>
-      </div> */}
 
       {/* Modals */}
       <LockConfirmModal

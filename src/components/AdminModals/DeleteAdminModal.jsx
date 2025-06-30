@@ -13,7 +13,7 @@ const DeleteAdminModal = ({ isOpen, onClose }) => {
     if (selectedAdmin) {
       removeAdmin(selectedAdmin.id);
       toast.success(`${selectedAdmin.name} deleted`);
-      setSelectedAdmin(null); // reset state
+      setSelectedAdmin(null);
     }
   };
 

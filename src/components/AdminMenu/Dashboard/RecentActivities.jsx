@@ -26,7 +26,6 @@ const RecentActivities = () => {
           </div>
         </div>
 
-        {/* Empty Rows (Like the screenshot) */}
         <div className="bg-gray-100 h-8 rounded" />
         <div className="bg-gray-100 h-8 rounded" />
         <div className="bg-gray-100 h-8 rounded" />

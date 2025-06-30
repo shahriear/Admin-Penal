@@ -4,13 +4,13 @@
   margin-inline: auto;
   padding-inline: 2rem;
 }
-/* global CSS ফাইলে বা style tag এ যোগ করুন */
+
 .scrollbar-hide {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 .scrollbar-hide::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
 }
 
 @config "../tailwind.config.js";

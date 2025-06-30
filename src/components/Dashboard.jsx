@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { menuItems } from './Sidebar';
+
 import { CardContent } from './ui/card';
 import UserInfo from './AdminMenu/Dashboard/UserInfo';
 import StatsSection from './AdminMenu/Dashboard/StatsSection';
@@ -67,23 +67,6 @@ const Dashboard = () => {
 
             {active === 'Dashboard' && (
               <>
-                {/* Available Balance */}
-
-                {/* <div className="flex flex-wrap sm:flex-nowrap justify-between items-center gap-3 mb-4 p-4 bg-[#D9D9D9] rounded">
-                  <div className="font-dm font[600] md:text-[18px] text-[17px]">
-                    Available Balance:
-                    <span className="font-[600] md:text-[18px] text-[17px]">
-                      $24930.00
-                    </span>
-                  </div>
-                  <button
-                    onClick={() => setBalanceModalOpen(true)}
-                    className="bg-black text-white md:px-4 md:py-3 px-3 py-2 rounded font-dm font[500] md:text-[16px] text-[13px] whitespace-nowrap"
-                  >
-                    +/- Balance
-                  </button>
-                </div> */}
-
                 {/* Modal Call */}
                 <BalanceModal
                   isOpen={balanceModalOpen}

@@ -9,7 +9,6 @@ import ChangeNameModal from '../../AdminModals/ChangeNameModal';
 import ChangePasswordModal from '../../AdminModals/ChangePasswordModal';
 import CreateAdminModal from '../../AdminModals/CreateAdminModal';
 import DeleteAdminModal from '../../AdminModals/DeleteAdminModal';
-// import ChangeNameModal from '../AdminModals/ChangeNameModal';
 
 const AdminActionMenu = ({ size = 'xl', className = '' }) => {
   const [open, setOpen] = useState(false);
@@ -37,12 +36,10 @@ const AdminActionMenu = ({ size = 'xl', className = '' }) => {
   const closeModal = () => setOpenModal(null);
   return (
     <div className="relative inline-block" ref={wrapperRef}>
-      {/* আগের UserInfo component-কে ক্লিকযোগ্য করলাম */}
       <div onClick={() => setOpen(!open)} className="cursor-pointer">
         <UserInfo size="lg" />
       </div>
 
-      {/* Popup menu */}
       {open && (
         <Card className="absolute z-50 mt-2 w-64 right-0 shadow-lg">
           <CardContent className="space-y-1 p-2">
@@ -55,7 +52,9 @@ const AdminActionMenu = ({ size = 'xl', className = '' }) => {
                 className={`${imageClass} rounded-full object-cover`}
               />
               <div className="text-left">
-                <div className="font-dm font-[600] text-[20px] ">Shuvo</div>
+                <div className="font-dm font-[600] text-[20px] ">
+                  Nancy Himel
+                </div>
                 <div className="font-dm font-[300] text-[12px] text-gray-500">
                   Admin / (Admin ID)
                 </div>

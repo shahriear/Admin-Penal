@@ -7,10 +7,8 @@ const CreateAdminModal = ({ isOpen, onClose }) => {
 
   return (
     <Dialog open={isOpen} onClose={onClose} className="relative z-50">
-      {/* Background overlay */}
       <div className="fixed inset-0 bg-black/70" aria-hidden="true" />
 
-      {/* Modal position wrapper */}
       <div className="fixed inset-0 flex items-center justify-center p-4">
         <Dialog.Panel className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
           <Dialog.Title className="font-dm md:font-[600] md:text-[20px] font-[600] text-[18px] mb-2 mt-7">
@@ -50,7 +48,6 @@ const CreateAdminModal = ({ isOpen, onClose }) => {
               window.scrollTo(0, 0);
             }}
           >
-            {/* Admin Name */}
             <Dialog.Title className="font-dm md:font-[500] md:text-[14px] font-[500] text-[12px] mb-1 mt-4">
               Admin Name *
             </Dialog.Title>
@@ -61,7 +58,6 @@ const CreateAdminModal = ({ isOpen, onClose }) => {
               className="w-full border p-2 rounded mb-4 font-dm md:font-[300] md:text-[15px] text-[16px] bg-[#D9D9D9]"
             />
 
-            {/* Admin ID */}
             <Dialog.Title className="font-dm md:font-[500] md:text-[14px] font-[500] text-[12px] mb-1">
               Admin ID (6 Digit Only) *
             </Dialog.Title>
@@ -72,7 +68,6 @@ const CreateAdminModal = ({ isOpen, onClose }) => {
               className="w-full border p-2 rounded mb-4 font-dm md:font-[300] md:text-[15px] text-[16px] bg-[#D9D9D9]"
             />
 
-            {/* Password */}
             <Dialog.Title className="font-dm md:font-[500] md:text-[14px] font-[500] text-[12px] mb-1">
               Password *
             </Dialog.Title>

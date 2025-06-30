@@ -23,9 +23,6 @@ const AddAgentModal = ({ isOpen, onClose }) => {
             Add New Agent
           </Dialog.Title>
 
-          {/* <label className="block text-sm font-medium mb-1 ">
-            Select Agent Type*
-          </label> */}
           <select
             className="w-full p-2 border rounded mb-4 bg-[#CCCACA] font-dm font-[400] md:text-[16px] text-[15px] "
             value={agentType}
@@ -60,9 +57,6 @@ const AddAgentModal = ({ isOpen, onClose }) => {
 
           {agentType === 'Master Agent' && (
             <div className="space-y-3">
-              {/* <label className="block text-sm font-medium mb-1 ">
-                Select Territory Area*
-              </label> */}
               <select
                 className="w-full p-2 border rounded bg-[#D9D9D9] font-[400] md:text-[16px] text-[14px]"
                 value={territoryArea}

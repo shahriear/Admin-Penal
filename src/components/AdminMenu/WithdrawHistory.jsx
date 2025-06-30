@@ -14,7 +14,7 @@ const WithdrawHistory = () => {
     <div className="w-full">
       <div className="w-full overflow-x-auto">
         <table className="w-full table-fixed border-separate border-spacing-y-2 text-sm">
-          {/* Header: only visible on mobile */}
+          {/*====== Header: only visible on mobile========== */}
           <thead className="md:hidden">
             <tr className="bg-[#C3C2C2] font-dm md:font-[400] md:text-[14px] font-[400] text-[10px] w-full">
               <th className="w-[25%] text-left px-2 py-2 whitespace-nowrap">
@@ -33,7 +33,7 @@ const WithdrawHistory = () => {
           </thead>
 
           <tbody>
-            {/* Mobile View Data Row */}
+            {/*===== Mobile View Data Row======= */}
             <tr className="bg-[#D9D9D95E] border border-transparent text-[10px] md:hidden">
               <td className="px-2 py-2 whitespace-nowrap">
                 {withdrawData[0].date}
@@ -49,7 +49,7 @@ const WithdrawHistory = () => {
               </td>
             </tr>
 
-            {/* Empty Rows: visible on all views */}
+            {/* ======Empty Rows: visible on all views====== */}
             {[...Array(11)].map((_, i) => (
               <tr
                 key={`empty-${i}`}
