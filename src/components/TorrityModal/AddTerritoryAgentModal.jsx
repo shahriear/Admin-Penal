@@ -34,11 +34,9 @@ const AddTerritoryAgentModal = ({ isOpen, onClose, onConfirm }) => {
         <h2 className="text-lg font-dm font-[600] mb-4">Add Territory Agent</h2>
 
         <div className="space-y-3">
-          <input
-            type="text"
-            placeholder="Territory Agent"
-            className="w-full border rounded p-2 text-[16px] font-dm bg-[#D9D9D9]"
-          />
+          <p className="w-full border rounded p-2 text-[16px] font-dm bg-[#D9D9D9]">
+            Territory Agent
+          </p>
           <select className="w-full border rounded p-2 text-[15px] font-dm bg-[#D9D9D9]">
             <option value="">Select Territory Area</option>
             <option>Dhaka</option>
