@@ -4,10 +4,8 @@ import { toast } from 'react-toastify';
 const ChangeNameModal = ({ isOpen, onClose }) => {
   return (
     <Dialog open={isOpen} onClose={onClose} className="relative z-50">
-      {/* Background overlay */}
       <div className="fixed inset-0 bg-black/70" aria-hidden="true" />
 
-      {/* Modal position wrapper */}
       <div className="fixed inset-0 flex items-center justify-center p-4">
         <Dialog.Panel className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
           <Dialog.Title className=" font-dm md:font-[600] md:text-[20px] font-[600] text-[18px] mb-2 mt-7">

@@ -160,7 +160,7 @@ const TorrityAgentList = () => {
 
   return (
     <div className="bg-white rounded">
-      <div className="flex justify-end items-center mb-4 gap-4 overflow-x-auto whitespace-nowrap">
+      {/* <div className="flex justify-end items-center mb-4 gap-4 overflow-x-auto whitespace-nowrap">
         <div className="flex gap-2 w-fit md:w-auto">
           <div className="relative">
             <input
@@ -181,6 +181,27 @@ const TorrityAgentList = () => {
             Add TeritorryAgent
           </button>
         </div>
+      </div> */}
+
+      <div className="flex justify-between flex-wrap items-center mb-4 gap-2">
+        <div className="relative flex-1 min-w-[150px] max-w-sm">
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchTerm}
+            onChange={e => setSearchTerm(e.target.value)}
+            className="w-full border pr-8 pl-4 py-2 rounded font-dm text-[16px] bg-[#D9D9D9]"
+          />
+          <span className="absolute inset-y-0 right-3 flex items-center text-gray-700">
+            <LuCrosshair size={17} />
+          </span>
+        </div>
+        <button
+          onClick={() => setShowModal(true)}
+          className="bg-black text-white px-2 sm:px-5 py-3 rounded font-dm font-[600] md:text-[14px] text-[13px] sm:text-[16px] whitespace-nowrap "
+        >
+          Add TeritorryAgent
+        </button>
       </div>
 
       <div className="overflow-x-auto pb-2">
@@ -293,9 +314,7 @@ const TorrityAgentList = () => {
         <EditAgentModal
           agent={editAgent}
           onClose={() => setEditAgent(null)}
-          onUpdate={(id, field, value) => {
-            // update logic
-          }}
+          onUpdate={(id, field, value) => {}}
           onDelete={id => {
             setEditAgent(null);
           }}

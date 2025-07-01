@@ -130,9 +130,9 @@ const MemberList = () => {
       )}
 
       {/* Top Bar */}
-      <div className="w-full flex justify-end items-center mb-4 px-2">
+
+      {/* <div className="w-full flex justify-end items-center mb-4 px-2">
         <div className="flex flex-wrap gap-2 items-center">
-          {/* Search  */}
           <div className="relative">
             <input
               type="text"
@@ -144,7 +144,6 @@ const MemberList = () => {
             </span>
           </div>
 
-          {/* Add User Button */}
           <button
             onClick={() => setAddUserOpen(true)}
             className="bg-black text-white px-4 sm:px-5 py-2 rounded font-dm font-[600] text-[14px] sm:text-[16px] whitespace-nowrap"
@@ -152,6 +151,24 @@ const MemberList = () => {
             Add User
           </button>
         </div>
+      </div> */}
+      <div className="flex justify-between flex-wrap items-center mb-4 gap-3">
+        <div className="relative flex-1 min-w-[150px] max-w-sm">
+          <input
+            type="text"
+            placeholder="Search"
+            className="w-full border pr-8 pl-4 py-2 rounded font-dm text-[16px] bg-[#D9D9D9]"
+          />
+          <span className="absolute inset-y-0 right-3 flex items-center text-gray-700">
+            <LuCrosshair size={17} />
+          </span>
+        </div>
+        <button
+          onClick={() => setAddUserOpen(true)}
+          className="bg-black text-white px-4 sm:px-5 py-2 rounded font-dm font-[600] text-[14px] sm:text-[16px] whitespace-nowrap"
+        >
+          Add User
+        </button>
       </div>
 
       {/* Member Table */}
